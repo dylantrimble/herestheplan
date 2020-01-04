@@ -15,8 +15,13 @@ class App extends Component {
     isLoaded: false,
     items: [],
     loggedIn: false,
+<<<<<<< HEAD
+    userId = "",
+    userName = ""
+=======
     latLocation: 0,
     lngLocation: 0
+>>>>>>> 2572ce7d3fd68ab4f042250dce989c83b2533ffa
   };
 
   toggleBurger = () => {
