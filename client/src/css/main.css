@@ -529,4 +529,29 @@ body {
   color: white;
   background-color: black;
 }
+.container {
+  position:fixed;
+  left: 230px;
+  top: 135px;
+  text-align: center;
+}
+
+.left {
+  background-color:white;
+  height: 500px;
+}
+.right {
+  color:white;
+  background-color:black;
+  display: inline-block;
+}
+
+.left2 {
+  background-color: black;
+  color: white;
+
+}
+.right2 {
+  background-color: white;
+}
 /*# sourceMappingURL=main.css.map */
