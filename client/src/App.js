@@ -14,7 +14,9 @@ class App extends Component {
     error: null,
     isLoaded: false,
     items: [],
-    loggedIn: false
+    loggedIn: false,
+    latLocation: 0,
+    lngLocation: 0
   };
 
   toggleBurger = () => {
@@ -22,51 +24,55 @@ class App extends Component {
     this.setState({ collapsed });
   };
 
+
   componentDidMount() {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url =
-      "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
-      process.env.REACT_APP_GOOGLE_API_KEY +
-      "&location=35.2271,-80.8431"; // site that doesnâ€™t send Access-Control-*
-    fetch(proxyurl + url)
+    const geoUrl = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + process.env.REACT_APP_GOOGLE_API_KEY;
+    fetch(proxyurl + geoUrl, {
+      method: 'POST'
+    })
       .then(res => res.json())
       .then(
         results => {
           this.setState({
-            isLoaded: true,
-            items: results.results
-          });
-          console.log(this.state.items);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
+            latLocation: results.location.lat,
+            lngLocation: results.location.lng
+          })
+          const url =
+            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
+            process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
+          fetch(proxyurl + url)
+            .then(res => res.json())
+            .then(
+              results => {
+                this.setState({
+                  isLoaded: true,
+                  items: results.results
+                });
+              },
+              error => {
+                this.setState({
+                  isLoaded: true,
+                  error
+                });
+              }
+            );
         }
-      );
+      )
   }
 
-  dollarFunc = jakesHappieness => {
-    switch (jakesHappieness) {
+  dollarFunc = jakesHappyness => {
+    switch (jakesHappyness) {
       case 1:
         return "$";
-        break;
       case 2:
         return "$$";
-        break;
       case 3:
         return "$$$";
-        break;
       case 4:
         return "$$$$";
-        break;
       case 5:
         return "$$$$$";
-        break;
       default:
         return "No price range to display";
     }
