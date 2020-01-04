@@ -118,7 +118,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/main" component={Main} />
-            <Route exact path="/profile/:id" component={Profile} />
+            <Route exact path="/profile" component={Profile} />
             <Route component={NoMatch} />
           </Switch>
         </div>
