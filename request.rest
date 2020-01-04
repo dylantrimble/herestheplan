@@ -1,0 +1,15 @@
+GET http://localhost:4440/users
+
+###
+
+POST http://localhost:4440/localhost:4440/users
+Content-Type: application/json
+
+
+{
+    "name": "Will",
+    "password": "password"
+}
+
+
+
