@@ -3,7 +3,6 @@ import "../css/main.css";
 import Card from "../components/Card/card";
 
 function Main(props) {
-  console.log(props);
   return (
     <div class="mainBody">
       <div className="searchDiv">
@@ -14,14 +13,16 @@ function Main(props) {
             Search
           </button>
         </form>
-        {props.items.map(item => (
-          <Card
-            name={item.name}
-            rating={item.rating}
-            // price={props.dollarFunc(item.price_level)}
-            location={item.vicinity}
-          />
-        ))}
+        <div className="divContainer">
+          {props.items.map(item => (
+            <Card
+              name={item.name}
+              rating={item.rating}
+              price={props.dollarFunc(item.price_level)}
+              location={item.vicinity}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

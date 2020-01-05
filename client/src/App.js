@@ -6,7 +6,7 @@ import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import "./css/main.css";
-// import Sequelize from "../src/database/connection"
+// import Sequelize from "../src/database/connection
 
 class App extends Component {
   state = {
@@ -30,7 +30,7 @@ class App extends Component {
   componentDidMount() {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const geoUrl = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + process.env.REACT_APP_GOOGLE_API_KEY;
-    fetch(proxyurl + geoUrl, {
+    fetch(geoUrl, {
       method: 'POST'
     })
       .then(res => res.json())
@@ -111,7 +111,7 @@ class App extends Component {
             <Route
               exact
               path="/main"
-              render={(props) => <Main {...props} {...this.state} {...this.dollarFunc}/>}
+              render={(props) => <Main {...props} {...this.state} dollarFunc={this.dollarFunc}/>}
             />
             <Route exact path="/profile/:id" component={Profile}/>
             <Route component={NoMatch} />

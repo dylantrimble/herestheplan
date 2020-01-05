@@ -1,4 +1,7 @@
-html, body, #root, .wrapper {
+html,
+body,
+#root,
+.wrapper {
   height: 100%;
   width: 100%;
 }
@@ -323,191 +326,6 @@ html, body, #root, .wrapper {
   margin: 5px;
 }
 
-body {
-  background-image: url("../image/homebackground.jpg");
-}
-
-.searchDiv {
-  margin-top: 100px;
-  width: 100%;
-}
-
-.searchDiv .formSearchBar {
-  margin: 0 auto;
-  display: block;
-  width: 30%;
-}
-
-.searchDiv input {
-  position: relative;
-  width: 100%;
-  font-size: 30px;
-  border-radius: 40px;
-  border-width: 1.5px;
-  border-color: grey;
-}
-
-.searchDiv .searchButton {
-  position: relative;
-  left: 40%;
-  width: 20%;
-  margin-top: 5px;
-  background-color: #5aebad;
-  border-color: black;
-  border-width: 1.5px;
-  border-radius: 40px;
-}
-
-.cardDiv {
-  margin: auto;
-  margin-left: 365px;
-}
-
-.cardDiv .card {
-  display: inline-block;
-  width: 20%;
-  margin: 10px;
-}
-
-.cardDiv p {
-  height: 100px;
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  background: #5aebad;
-  color: #404040;
-  z-index: 1;
-  width: 100%;
-  padding: 0;
-  border-bottom: 1px solid black;
-}
-
-.navbar .logo {
-  padding-left: 10px;
-  color: #404040;
-  text-decoration: none;
-  font-size: 24px;
-}
-
-.navbar ul {
-  display: none;
-}
-
-.navbar ul li {
-  border-top: 1px solid black;
-}
-
-.navbar ul a {
-  width: 100%;
-}
-
-.navbar ul a:hover {
-  background: #19cc7f;
-}
-
-.navbar .showUl {
-  width: 100%;
-  text-align: center;
-  list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar .burger {
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 25px;
-  height: 2px;
-  background: #404040;
-  position: relative;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.navbar .burger:before {
-  top: -9px;
-}
-
-.navbar .burger:after {
-  top: 9px;
-}
-
-.navbar .burger-container {
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
-
-.navbar .burger-main:before,
-.navbar .burger-main:after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 2px;
-  background: #404040;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.navbar .burger-container.active-burger .burger-main {
-  background: rgba(0, 0, 0, 0);
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
-}
-
-.navbar .burger-container.active-burger .burger-main:before {
-  top: 0;
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
-  -webkit-box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.navbar .burger-container.active-burger .burger-main:after {
-  top: 0;
-  -webkit-transform: rotate(225deg);
-          transform: rotate(225deg);
-  -webkit-box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-@media only screen and (min-width: 600px) {
-  .navbar ul {
-    text-align: center;
-    list-style-type: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    margin: 0 10px 0 0;
-    padding: 0;
-  }
-  .navbar ul li {
-    border: none;
-  }
-  .navbar .burger {
-    display: none;
-  }
-}
-
 .buttonWrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -525,33 +343,122 @@ body {
   background: #5aebad;
 }
 
-.testing {
-  color: white;
-  background-color: black;
+.submitBtn:hover {
+  background: #19cc7f;
+  -webkit-box-shadow: 0 0 10px grey;
+          box-shadow: 0 0 10px grey;
 }
-.container {
-  position:fixed;
-  left: 230px;
-  top: 135px;
+
+.divContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.divContainer .cardDiv {
+  width: 400px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 0 15px black;
+          box-shadow: 0 0 15px black;
+}
+
+.divContainer .cardDiv .card-body {
+  background-image: url("../image/card-background.jpg");
+  background-repeat: no-repeat;
+  height: 250px;
+  position: relative;
+}
+
+.divContainer .cardDiv .card-body .card-title {
   text-align: center;
 }
 
-.left {
-  background-color:white;
-  height: 500px;
-}
-.right {
-  color:white;
-  background-color:black;
-  display: inline-block;
+.divContainer .cardDiv .card-body p {
+  margin: 0;
 }
 
-.left2 {
-  background-color: black;
-  color: white;
-
+.divContainer .cardDiv .card-body ul {
+  padding: 0;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
-.right2 {
-  background-color: white;
+
+.divContainer .cardDiv .card-body ul button {
+  width: 120px;
+  height: 35px;
+}
+
+.divContainer .cardDiv .card-body .card-buttons {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: 0 auto;
+}
+
+.divContainer .cardDiv .card-body .card-buttons button {
+  margin: 10px;
+}
+
+.divContainer .cardDiv .card-body .cardLocation {
+  text-align: center;
+  width: 250px;
+  margin: 0 auto;
+}
+
+body {
+  background-image: url("../image/homebackground.jpg");
+}
+
+.searchDiv {
+  margin-top: 100px;
+  width: 100%;
+}
+
+.searchDiv .formSearchBar {
+  margin: 0 auto;
+  display: block;
+  width: 400px;
+}
+
+.searchDiv input {
+  position: relative;
+  width: 400px;
+  padding-left: 10px;
+  font-size: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 0 0 10px black;
+          box-shadow: 0 0 10px black;
+}
+
+.searchDiv .searchButton {
+  position: relative;
+  left: 40%;
+  width: 20%;
+  margin: 10px 0;
+  background-color: #5aebad;
+  border-radius: 40px;
+  border: none;
+  -webkit-box-shadow: 0 0 10px black;
+          box-shadow: 0 0 10px black;
+}
+
+.searchDiv .searchButton:hover {
+  background: #19cc7f;
 }
 /*# sourceMappingURL=main.css.map */

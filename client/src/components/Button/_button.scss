@@ -1,12 +1,16 @@
 .buttonWrap {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .signUpInBtn {
-    background: $third-color;
+  background: $third-color;
 }
 
 .submitBtn {
-    background: $primary-color;
+  background: $primary-color;
+  &:hover {
+    background: $dark-primary-color;
+    box-shadow: 0 0 10px grey;
+  }
 }
