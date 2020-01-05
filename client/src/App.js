@@ -15,13 +15,10 @@ class App extends Component {
     isLoaded: false,
     items: [],
     loggedIn: false,
-<<<<<<< HEAD
-    userId = "",
-    userName = ""
-=======
+    userId: "",
+    userName: "",
     latLocation: 0,
     lngLocation: 0
->>>>>>> 2572ce7d3fd68ab4f042250dce989c83b2533ffa
   };
 
   toggleBurger = () => {
@@ -82,8 +79,8 @@ class App extends Component {
         return "No price range to display";
     }
   };
-
   render() {
+
     const burgerClass = this.state.collapsed ? "active-burger" : "";
     const showUl = this.state.collapsed ? "showUl" : "";
     return (
@@ -109,21 +106,14 @@ class App extends Component {
               {this.state.loggedIn ? "Profile" : "Sign In"}
             </a>
           </Nav>
-          <div className="testing">
-            {this.state.items.map(item => (
-              <div>
-                <div className="testing">{item.name}</div>
-                <div className="testing">rating: {item.rating}</div>
-                <div className="testing">
-                  price range: {this.dollarFunc(item.price_level)}
-                </div>
-              </div>
-            ))}
-          </div>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/main" component={Main} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/" component={Home}/>
+            <Route
+              exact
+              path="/main"
+              render={(props) => <Main {...props} {...this.state} {...this.dollarFunc}/>}
+            />
+            <Route exact path="/profile/:id" component={Profile}/>
             <Route component={NoMatch} />
           </Switch>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 
 function Nav(props) {
+  console.log(props)
   return (
     <nav className="navbar">
       <a className="logo" href="/">
