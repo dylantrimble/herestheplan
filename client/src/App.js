@@ -114,7 +114,7 @@ class App extends Component {
               path="/main"
               render={(props) => <Main {...props} {...this.state} {...this.dollarFunc}/>}
             />
-            <Route exact path="/profile/:id" component={Profile}/>
+            <Route exact path="/profile" component={Profile}/>
             <Route component={NoMatch} />
           </Switch>
         </div>
