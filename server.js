@@ -25,6 +25,17 @@ const path = require("path");
 const PORT = process.env.PORT || 3002;
 const app = express();
 
+// Requiring our models for syncing
+var db = require("./models");
+
+// Routes
+// =============================================================
+require("./routes/events-routes")(app);
+require("./routes/friends-routes")(app);
+require("./routes/places-routes")(app);
+require("./routes/saved_places-routes")(app);
+require("./routes/users")(app);
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
