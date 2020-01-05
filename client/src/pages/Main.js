@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "../css/main.css";
 import Card from "../components/Card/card";
 
@@ -14,7 +14,14 @@ function Main(props) {
             Search
           </button>
         </form>
-        <Card />
+        {props.items.map(item => (
+          <Card
+            name={item.name}
+            rating={item.rating}
+            // price={props.dollarFunc(item.price_level)}
+            location={item.vicinity}
+          />
+        ))}
       </div>
     </div>
   );
