@@ -31,38 +31,44 @@ class App extends Component {
     fetch(proxyurl + geoUrl, {
       method: 'POST'
     })
-      .then(res => res.json())
-      .then(
-        results => {
-          this.setState({
-            latLocation: results.location.lat,
-            lngLocation: results.location.lng
-          })
-          const url =
-            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
-            process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
-          fetch(proxyurl + url)
-            .then(res => res.json())
-            .then(
-              results => {
-                this.setState({
-                  isLoaded: true,
-                  items: results.results
-                });
-              },
-              error => {
-                this.setState({
-                  isLoaded: true,
-                  error
-                });
-              }
-            );
-        }
+    .then(res => res = 'json=' + JSON.stringify(res))
+    .then(
+      results => {
+        this.setState({
+          latLocation: results.location.lat,
+          lngLocation: results.location.lng
+        })
+        console.log(this.state.lngLocation + " and " + this.state.latLocation)
+        const url =
+        "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
+        process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
+        console.log("other: " + this.state.lngLocation)
+      fetch(proxyurl + url)
+        .then(res => res.json())
+        .then(
+          results => {
+            this.setState({
+              isLoaded: true,
+              items: results.results
+            });
+            console.log(this.state.items);
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          error => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        );
+      }
       )
   }
 
-  dollarFunc = jakesHappyness => {
-    switch (jakesHappyness) {
+  dollarFunc = jakesHappieness => {
+    switch (jakesHappieness) {
       case 1:
         return "$";
       case 2:
@@ -118,7 +124,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/main" component={Main} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/:id" component={Profile} />
             <Route component={NoMatch} />
           </Switch>
         </div>
