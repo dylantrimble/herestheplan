@@ -4,6 +4,7 @@ module.exports = function(app) {
   app.get("/api/users", function(req, res) {
     // 1. Add a join to include all of each Author's Posts
     db.User.findAll({}).then(function(dbUser) {
+      console.info('find user',dbUser);
       res.json(dbUser);
     });
   });
@@ -19,7 +20,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/users", function(req, res) {
+  app.post("/api/newUsers", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
       res.json(dbUser);
     });
