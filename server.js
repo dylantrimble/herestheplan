@@ -1,8 +1,12 @@
 const express = require("express")
-const app = express()
+const path = require("path");
+const app = express();
 const bcrypt = require("bcrypt")
 
-app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+const PORT = process.env.PORT || 3002;
 
 // store users in db
 const users = []
@@ -39,4 +43,18 @@ app.post("/users/login", async (req, res) => {
   }
 })
 
-app.listen(3002)
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+app.listen(PORT, function() {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
+});
+
