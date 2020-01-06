@@ -38,8 +38,8 @@ class App extends Component {
         results => {
           console.log(results)
           this.setState({
-            latLocation: results.location.lat,
-            lngLocation: results.location.lng
+            // latLocation: results.location.lat,
+            // lngLocation: results.location.lng
           })
           const url =
             "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
