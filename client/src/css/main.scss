@@ -1,10 +1,13 @@
-html, body, #root, .wrapper {
-    height: 100%;
-    width: 100%;
+html,
+body,
+#root,
+.wrapper {
+  height: 100%;
+  width: 100%;
 }
 
 .hideModal {
-    display: none
+  display: none;
 }
 
 $primary-color: #5aebad;
@@ -12,59 +15,44 @@ $dark-primary-color: #19cc7f;
 $secondary-color: #404040;
 $third-color: #ff4d4d;
 
-@import '../components/nav/_nav';
-@import '../components/Jumbotron/jumbotron';
-@import '../components/nav/_nav.scss';
+@import "../components/nav/_nav";
+@import "../components/Jumbotron/jumbotron";
+@import "../components/nav/_nav.scss";
 @import "../components/Signupmodal/modal";
+@import "../components//Button/button";
+@import "../components/Card/card";
+
 body {
-    background-image: url("../image/homebackground.jpg");
+  background-image: url("../image/homebackground.jpg");
 }
 
 .searchDiv {
-    margin-top:100px;
-        width: 100%;
-        .formSearchBar{
-            margin: 0 auto;
-            display: block;
-            width:30%;
-        }
-    input {
-        position: relative;
-        width: 100%;
-        font-size: 30px;
-        border-radius: 40px;
-        border-width: 1.5px;
-        border-color: grey;
+  margin-top: 100px;
+  width: 100%;
+  .formSearchBar {
+    margin: 0 auto;
+    display: block;
+    width: 400px;
+  }
+  input {
+    position: relative;
+    width: 400px;
+    padding-left: 10px;
+    font-size: 30px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px black;
+  }
+  .searchButton {
+    position: relative;
+    left: 40%;
+    width: 20%;
+    margin: 10px 0;
+    background-color: $primary-color;
+    border-radius: 40px;
+    border: none;
+    box-shadow: 0 0 10px black;
+    &:hover {
+      background: $dark-primary-color;
     }
-    .searchButton {
-        position: relative;
-        left:40%;
-        width: 20%;
-        margin-top: 5px;
-        background-color: $primary-color;
-        border-color:black;
-        border-width: 1.5px;
-        border-radius: 40px;
-    }
-}
-.cardDiv {
-    margin: auto;
-    margin-left: 365px;
-    .card {
-        display:inline-block;
-        width: 20%;
-        margin: 10px;
-    }
-    p {
-        height: 100px;
-    }
-    
-}
-
-@import '../components/nav/_nav';
-@import "../components//Button/button";
-
-.testing {
-    color: white;
-    background-color: black;
+  }
 }

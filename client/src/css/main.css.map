@@ -7,8 +7,8 @@
         "../components/Jumbotron/_jumbotron.scss",
         "../components/nav/_nav.scss",
         "../components/Signupmodal/_modal.scss",
-        "../components/nav/_nav.scss",
-        "../components/Button/_button.scss"
+        "../components/Button/_button.scss",
+        "../components/Card/_card.scss"
     ],
     "names": [],
     "file": "main.css"
