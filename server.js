@@ -8,9 +8,10 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3002;
 
-
 // Requiring our models for syncing
 var db = require("./models");
+
+console.info('after db initialization');
 
 // Routes
 // =============================================================
@@ -55,11 +56,8 @@ app.post("/users/login", async (req, res) => {
   }
 })
 
-app.listen(3002)
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+//  up static assets (usually on heroku)
+
 
 // Send every request to the React app
 // Define any API routes before this runs
@@ -69,9 +67,12 @@ app.get("*", function(req, res) {
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
+    if (process.env.NODE_ENV === "production") {
+      app.use(express.static("client/build"));
+    }
   });
 });
 

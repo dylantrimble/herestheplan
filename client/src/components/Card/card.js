@@ -3,18 +3,26 @@ import React from "react";
 function Card(props) {
   return (
     <div class="cardDiv">
-      <div class="card h-100">
-        <img
-          class="card-img-top"
-          src="https://www.placecage.com/c/300/300"
-          alt="Card cap"
-        />
+      <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">asdfasdf</p>
-          <a href="#" class="btn btn-primary">
-            Go somewhere
-          </a>
+          <h3 class="card-title">{props.name}</h3>
+          <ul>
+            <li>
+              <p>Rating: {props.rating}</p>
+            </li>
+            <li>
+              <p>Price: {props.price}</p>
+            </li>
+          </ul>
+          <p className="cardLocation">{props.location}</p>
+          <ul className="card-buttons">
+            <li>
+              <button className="btn submitBtn">Add to Event</button>
+            </li>
+            <li>
+              <button className="btn submitBtn">Favorite</button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
