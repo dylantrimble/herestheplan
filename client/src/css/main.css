@@ -449,6 +449,7 @@ body {
   display: inline-block;
   font-size: 40px;
   text-shadow: 1px 1px #fff;
+  text-align: center;
 }
 .options {
   font-size: 20px;
@@ -468,6 +469,7 @@ body {
   font-size: 20px;
   border-left-style: solid;
   height: 444px;
+}
 .searchDiv {
   margin-top: 100px;
   width: 100%;
@@ -518,4 +520,10 @@ body {
 .left2, .right2 {
   border-top-style: solid;
   border-top-color: black;
+}
+
+.container {
+  position: fixed;
+  top: 125px;
+  left: 260px;
 }
