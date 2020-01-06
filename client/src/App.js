@@ -36,7 +36,6 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(results => {
-        console.log(results);
         this.setState({
           latLocation: results.location.lat,
           lngLocation: results.location.lng

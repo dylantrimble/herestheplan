@@ -429,6 +429,8 @@ body,
 
 body {
   background-image: url("../image/homebackground.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .searchDiv {
