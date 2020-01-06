@@ -34,7 +34,7 @@ body {
     display: block;
     width: 400px;
   }
-  input {
+  .searchBar {
     position: relative;
     width: 400px;
     padding-left: 10px;
@@ -46,7 +46,7 @@ body {
     position: relative;
     left: 40%;
     width: 20%;
-    margin: 10px 0;
+    margin: 10px 0 40px;
     background-color: $primary-color;
     border-radius: 40px;
     border: none;

@@ -1,15 +1,17 @@
 import React from "react";
 import "../css/main.css";
 import Card from "../components/Card/card";
+import EventModal from "../components/EventModal/eventModal"
 
 function Main(props) {
   return (
     <div class="mainBody">
       <div className="searchDiv">
+        <EventModal/>
         <form className="formSearchBar">
-          <input type="text" class="searchBar" />
+          <input type="text" className="searchBar" />
           <br />
-          <button class="searchButton" type="submit">
+          <button className="searchButton" type="submit">
             Search
           </button>
         </form>
