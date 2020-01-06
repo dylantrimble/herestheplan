@@ -1,6 +1,7 @@
 import React from "react";
 
-function Modal({ children }) {
+function Modal({ children }, newUser) {
+  console.log(newUser)
   return (
     <div>
       <div
