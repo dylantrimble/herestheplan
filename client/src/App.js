@@ -6,7 +6,7 @@ import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import "./css/main.css";
-// import Sequelize from "../src/database/connection"
+// import Sequelize from "../src/database/connection
 
 class App extends Component {
   state = {
@@ -18,7 +18,8 @@ class App extends Component {
     userId: "",
     userName: "",
     latLocation: 0,
-    lngLocation: 0
+    lngLocation: 0,
+    value: ""
   };
 
   toggleBurger = () => {
@@ -33,36 +34,34 @@ class App extends Component {
     fetch(geoUrl, {
       method: 'POST'
     })
-    .then(res => res.json())
-    .then(
-      results => {
-        this.setState({
-          latLocation: results.location.lat,
-          lngLocation: results.location.lng
-        })
-        console.log(this.state.lngLocation + " and " + this.state.latLocation)
-        const url =
-        "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
-        process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
-        console.log("other: " + this.state.lngLocation)
-      fetch(proxyurl + url)
-        .then(res => res.json())
-        .then(
-          results => {
-            this.setState({
-              isLoaded: true,
-              items: results.results
-            });
-            console.log(this.state.items);
-          },
-          error => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        );
-      }
+      .then(res => res.json())
+      .then(
+        results => {
+          console.log(results)
+          this.setState({
+            // latLocation: results.location.lat,
+            // lngLocation: results.location.lng
+          })
+          const url =
+            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
+            process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
+          fetch(proxyurl + url)
+            .then(res => res.json())
+            .then(
+              results => {
+                this.setState({
+                  isLoaded: true,
+                  items: results.results
+                });
+              },
+              error => {
+                this.setState({
+                  isLoaded: true,
+                  error
+                });
+              }
+            );
+        }
       )
   }
 
@@ -114,7 +113,7 @@ class App extends Component {
             <Route
               exact
               path="/main"
-              render={(props) => <Main {...props} {...this.state} {...this.dollarFunc}/>}
+              render={(props) => <Main {...props} {...this.state} dollarFunc={this.dollarFunc}/>}
             />
             <Route exact path="/profile" component={Profile}/>
             <Route component={NoMatch} />
