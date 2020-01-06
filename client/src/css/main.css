@@ -6,11 +6,19 @@ body,
   width: 100%;
 }
 
+body {
+  font-family: 'Anton', sans-serif;
+}
 .hideModal {
   display: none;
 }
 
+.modal-header {
+  text-shadow: 1px 1px #fff;
+}
+
 .navbar {
+  text-shadow: 1px 1px #fff;
   font-family: 'Anton', sans-serif;
   position: fixed;
   top: 0;
@@ -433,6 +441,40 @@ body {
   background-position: center;
 }
 
+.left {
+  font-size: 50px;
+  background-color:white;
+  height: 500px;
+  background-color: #19cc7f;
+  text-shadow: 1px 1px #fff;
+}
+.right {
+  height: 300px;
+  background-color:#19cc7f;
+  display: inline-block;
+  font-size: 40px;
+  text-shadow: 1px 1px #fff;
+  text-align: center;
+}
+.options {
+  font-size: 20px;
+  background-color: #fff;
+  border-top-style: solid;
+  height: 250px;
+}
+.optionButton {
+  margin-top: 20px;
+}
+.left2 {
+  font-size: 20px;
+  background-color: #fff;
+}
+.right2 {
+  background-color: white;
+  font-size: 20px;
+  border-left-style: solid;
+  height: 444px;
+}
 .searchDiv {
   margin-top: 100px;
   width: 100%;
@@ -470,3 +512,23 @@ body {
   background: #19cc7f;
 }
 /*# sourceMappingURL=main.css.map */
+
+.getStartedBtn {
+  font-family: 'Bungee Inline', cursive;
+}
+
+.calendar {
+  height:60px;
+  width: 80px;
+}
+
+.left2, .right2 {
+  border-top-style: solid;
+  border-top-color: black;
+}
+
+.container {
+  position: fixed;
+  top: 125px;
+  left: 260px;
+}
