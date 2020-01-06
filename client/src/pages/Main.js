@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../css/main.css";
 import Card from "../components/Card/card";
+import EventModal from "../components/EventModal/eventModal"
 
 class Main extends Component{
   constructor(props){
@@ -73,12 +74,11 @@ class Main extends Component{
     return (
       <div class="mainBody">
       <div className="searchDiv">
+        <EventModal/>
         <form className="formSearchBar">
           <input type="text" class="searchBar" input={this.state.value} onChange={this.handleChange}/>
           <br />
-          <button class="searchButton" type="submit" value="Submit">
-            Search
-          </button>
+          <button class="searchButton" type="submit" value="Submit">Search</button>
         </form>
         {/* <div className="divContainer">
           {props.items.map(item => (

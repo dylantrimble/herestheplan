@@ -27,42 +27,44 @@ class App extends Component {
     this.setState({ collapsed });
   };
 
-
   componentDidMount() {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const geoUrl = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + process.env.REACT_APP_GOOGLE_API_KEY;
+    const geoUrl =
+      "https://www.googleapis.com/geolocation/v1/geolocate?key=" +
+      process.env.REACT_APP_GOOGLE_API_KEY;
     fetch(geoUrl, {
-      method: 'POST'
+      method: "POST"
     })
       .then(res => res.json())
-      .then(
-        results => {
-          console.log(results)
-          this.setState({
-            // latLocation: results.location.lat,
-            // lngLocation: results.location.lng
-          })
-          const url =
-            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
-            process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
-          fetch(proxyurl + url)
-            .then(res => res.json())
-            .then(
-              results => {
-                this.setState({
-                  isLoaded: true,
-                  items: results.results
-                });
-              },
-              error => {
-                this.setState({
-                  isLoaded: true,
-                  error
-                });
-              }
-            );
-        }
-      )
+      .then(results => {
+        this.setState({
+          latLocation: results.location.lat,
+          lngLocation: results.location.lng
+        });
+        const url =
+          "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
+          process.env.REACT_APP_GOOGLE_API_KEY +
+          "&location=" +
+          this.state.latLocation +
+          "," +
+          this.state.lngLocation;
+        fetch(proxyurl + url)
+          .then(res => res.json())
+          .then(
+            results => {
+              this.setState({
+                isLoaded: true,
+                items: results.results
+              });
+            },
+            error => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          );
+      });
   }
 
   dollarFunc = jakesHappieness => {
@@ -82,7 +84,6 @@ class App extends Component {
     }
   };
   render() {
-
     const burgerClass = this.state.collapsed ? "active-burger" : "";
     const showUl = this.state.collapsed ? "showUl" : "";
     return (
@@ -96,7 +97,12 @@ class App extends Component {
             <a className="btn" href="/">
               Home
             </a>
-            <a className="btn" href={this.state.loggedIn ? "/main" : "/"}>
+            <a
+              className="btn"
+              data-toggle={this.state.loggedIn ? "" : "modal"}
+              data-target={this.state.loggedIn ? "" : "#signInModal"}
+              href={this.state.loggedIn ? "/main" : "/"}
+            >
               Search
             </a>
             <a
@@ -109,13 +115,15 @@ class App extends Component {
             </a>
           </Nav>
           <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Home} />
             <Route
               exact
               path="/main"
-              render={(props) => <Main {...props} {...this.state} dollarFunc={this.dollarFunc}/>}
+              render={props => (
+                <Main {...props} {...this.state} dollarFunc={this.dollarFunc} />
+              )}
             />
-            <Route exact path="/profile" component={Profile}/>
+            <Route exact path="/profile" component={Profile} />
             <Route component={NoMatch} />
           </Switch>
         </div>
