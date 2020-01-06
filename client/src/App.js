@@ -36,6 +36,7 @@ class App extends Component {
       .then(res => res.json())
       .then(
         results => {
+          console.log(results)
           this.setState({
             latLocation: results.location.lat,
             lngLocation: results.location.lng
@@ -113,7 +114,7 @@ class App extends Component {
               path="/main"
               render={(props) => <Main {...props} {...this.state} dollarFunc={this.dollarFunc}/>}
             />
-            <Route exact path="/profile/:id" component={Profile}/>
+            <Route exact path="/profile" component={Profile}/>
             <Route component={NoMatch} />
           </Switch>
         </div>

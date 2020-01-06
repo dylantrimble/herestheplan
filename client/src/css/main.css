@@ -6,11 +6,22 @@ body,
   width: 100%;
 }
 
+body {
+  font-family: 'Anton', sans-serif;
+}
+
 .hideModal {
   display: none;
 }
 
+.modal-header {
+  background-color: #19cc7f;
+  text-shadow: 1px 1px #fff;
+}
+
 .navbar {
+  text-shadow: 1px 1px #fff;
+  font-family: 'Anton', sans-serif;
   position: fixed;
   top: 0;
   background: #5aebad;
@@ -462,3 +473,7 @@ body {
   background: #19cc7f;
 }
 /*# sourceMappingURL=main.css.map */
+
+.getStartedBtn {
+  font-family: 'Bungee Inline', cursive;
+}
