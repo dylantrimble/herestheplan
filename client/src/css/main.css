@@ -6,11 +6,24 @@ body,
   width: 100%;
 }
 
+body {
+  font-family: 'Anton', sans-serif;
+}
+
+.modal-header {
+  text-shadow: 1px 1px #fff;
+}
+
 .hideModal {
   display: none;
 }
 
+.submitBtn {
+  text-shadow: 1px 1px #fff;
+}
+
 .navbar {
+  text-shadow: 1px 1px #fff;
   font-family: 'Anton', sans-serif;
   position: fixed;
   top: 0;
