@@ -9,10 +9,14 @@ body,
 body {
   font-family: 'Anton', sans-serif;
 }
-.hideModal {
-  display: none;
+
+.modal-header {
+  text-shadow: 1px 1px #fff;
 }
 
+.submitBtn {
+  text-shadow: 1px 1px #fff;
+}
 .modal-header {
   text-shadow: 1px 1px #fff;
 }
