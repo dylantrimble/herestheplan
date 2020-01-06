@@ -30,10 +30,10 @@ class App extends Component {
   componentDidMount() {
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const geoUrl = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + process.env.REACT_APP_GOOGLE_API_KEY;
-    fetch(proxyurl + geoUrl, {
+    fetch(geoUrl, {
       method: 'POST'
     })
-    .then(res => res = 'json=' + JSON.stringify(res))
+    .then(res => res.json())
     .then(
       results => {
         this.setState({
@@ -55,9 +55,6 @@ class App extends Component {
             });
             console.log(this.state.items);
           },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
           error => {
             this.setState({
               isLoaded: true,
