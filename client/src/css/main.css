@@ -6,16 +6,31 @@ body,
   width: 100%;
 }
 
+.optionButton {
+  background-color: #19cc7f;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 200px;
+}
+
+.btn-danger {
+  width: 200px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
 body {
   font-family: 'Anton', sans-serif;
 }
 
-.hideModal {
-  display: none;
+.modal-header {
+  text-shadow: 1px 1px #fff;
 }
 
+.submitBtn {
+  text-shadow: 1px 1px #fff;
+}
 .modal-header {
-  background-color: #19cc7f;
   text-shadow: 1px 1px #fff;
 }
 
@@ -185,6 +200,7 @@ body {
 }
 
 .navbar {
+  font-family: 'Anton', sans-serif;
   position: fixed;
   top: 0;
   background: #5aebad;
@@ -333,6 +349,10 @@ body {
   border-radius: 8px;
 }
 
+.modalDiv .modal-header {
+  background-color: #19cc7f;
+}
+
 .modalDiv label {
   margin: 5px;
 }
@@ -434,6 +454,8 @@ body {
 
 body {
   background-image: url("../image/homebackground.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .left {
@@ -449,15 +471,14 @@ body {
   display: inline-block;
   font-size: 40px;
   text-shadow: 1px 1px #fff;
+  text-align: center;
+
 }
 .options {
   font-size: 20px;
   background-color: #fff;
   border-top-style: solid;
   height: 250px;
-}
-.optionButton {
-  margin-top: 20px;
 }
 .left2 {
   font-size: 20px;
@@ -469,7 +490,6 @@ body {
   border-left-style: solid;
   height: 444px;
 }
-
 .searchDiv {
   margin-top: 100px;
   width: 100%;
@@ -481,7 +501,7 @@ body {
   width: 400px;
 }
 
-.searchDiv input {
+.searchDiv .searchBar {
   position: relative;
   width: 400px;
   padding-left: 10px;
@@ -495,7 +515,7 @@ body {
   position: relative;
   left: 40%;
   width: 20%;
-  margin: 10px 0;
+  margin: 10px 0 40px;
   background-color: #5aebad;
   border-radius: 40px;
   border: none;
@@ -506,7 +526,6 @@ body {
 .searchDiv .searchButton:hover {
   background: #19cc7f;
 }
-/*# sourceMappingURL=main.css.map */
 
 .getStartedBtn {
   font-family: 'Bungee Inline', cursive;
@@ -520,4 +539,10 @@ body {
 .left2, .right2 {
   border-top-style: solid;
   border-top-color: black;
+}
+
+.container {
+  position: fixed;
+  top: 125px;
+  left: 260px;
 }
