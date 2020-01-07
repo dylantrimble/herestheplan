@@ -9,16 +9,50 @@ import "../css/main.css";
 class Home extends Component {
 
   state = {
-    newUser: {
-      fullName: "mirko",
-      username: "mirkomaya",
-      password: "1234",
-      profile_pic: ""
-    }
+    fullName: "",
+    username: "",
+    password: "",
+    profile_pic: ""
   };
 
+  handleChangeFullName(event) {
+    this.setState({ fullName: event.target.value });
+  }
+
+  handleChangeUsername(event) {
+    this.setState({ username: event.target.value });
+  }
+
+  handleChangePassword(event) {
+    this.setState({ password: event.target.value });
+  }
+
+  handleNewUser(event) {
+    event.preventDefault()
+    const data = {
+      fullName: this.state.fullName,
+      username: this.state.username,
+      password: this.state.pasword
+    }
+    fetch("/api/newUsers", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err)
+      )
+  }
+
   render() {
-    console.log(this.state.newUser)
+    this.handleChangeFullName = this.handleChangeFullName.bind(this);
+    this.handleChangeUsername = this.handleChangeUsername.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.handleNewUser = this.handleNewUser.bind(this);
+
     return (
       <div className="wrapper">
         <Jumbotron>
@@ -32,7 +66,11 @@ class Home extends Component {
           </button>
         </Jumbotron>
         <SignUpModal
-          newUser={this.state.newUser}
+          state={this.state}
+          handleChangeFullName={this.handleChangeFullName}
+          handleChangeUsername={this.handleChangeUsername}
+          handleChangePassword={this.handleChangePassword}
+          handleNewUser={this.handleNewUser}
         >
         </SignUpModal>
         <SignInModal>
