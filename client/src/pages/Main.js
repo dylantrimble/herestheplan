@@ -31,7 +31,7 @@ class Main extends Component {
           lngLocation: results.location.lng
         })
         const url =
-        "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=" + this.state.value + "&key=" +
+        "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=25000&type=" + this.state.value + "&key=" +
         process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
         console.log(url);
         fetch(proxyurl + url)
