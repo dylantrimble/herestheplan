@@ -5,9 +5,7 @@ import SignUpModal from "../components/Signupmodal/signupmodal";
 import SignInModal from "../components/Signinmodal/signinmodal";
 import "../css/main.css";
 
-
 class Home extends Component {
-
   state = {
     fullName: "",
     username: "",
@@ -28,23 +26,21 @@ class Home extends Component {
   }
 
   handleNewUser(event) {
-    event.preventDefault()
+    event.preventDefault();
     const data = {
       fullName: this.state.fullName,
       username: this.state.username,
-      password: this.state.pasword
-    }
-    fetch("/api/newUsers", {
+      password: this.state.password
+    };
+    console.log(data);
+    const options = {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.log(err)
-      )
+    };
+    fetch("/api/newUser", options);
   }
 
   render() {
@@ -71,8 +67,7 @@ class Home extends Component {
           handleChangeUsername={this.handleChangeUsername}
           handleChangePassword={this.handleChangePassword}
           handleNewUser={this.handleNewUser}
-        >
-        </SignUpModal>
+        ></SignUpModal>
         <SignInModal>
           <a
             type="button"

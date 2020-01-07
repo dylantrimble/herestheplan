@@ -53,7 +53,7 @@ function Modal(props) {
                   data-target="#signInModal"
                 >
                   Sign In</a>
-                <Button className="submitBtn" onClick={event => props.handleNewUser(event)}>Submit</Button>
+                <Button className="submitBtn" onClick={props.handleNewUser}>Submit</Button>
               </footer>
             </div>
           </div>
