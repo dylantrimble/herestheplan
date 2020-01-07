@@ -33,7 +33,6 @@ class Main extends Component {
         const url =
         "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=25000&type=" + this.state.value + "&key=" +
         process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
-        console.log(url);
         fetch(proxyurl + url)
         .then(res => res.json())
         .then(
@@ -49,7 +48,7 @@ class Main extends Component {
               error
             });
           }
-          );
+          ); 
         }
         )
       }
@@ -59,6 +58,7 @@ class Main extends Component {
       value: e.target.value
     })
     this.componentDidMount();
+
   }
 
   dollarFunc = jakesHappieness => {
@@ -79,6 +79,7 @@ class Main extends Component {
   };
 
   render() {
+    console.log("value: " + this.state.value)
     return (
       <div class="mainBody">
         <div className="searchDiv">
@@ -88,8 +89,8 @@ class Main extends Component {
               What's the plan?
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button className="dropdown-item" onClick={e => this.thePlan(e, "value")} type="button" value="amusement_park">Amusement Park</button>
-              <button className="dropdown-item" onClick={e => this.thePlan(e, "value")} type="button" value="aquarium">Aquarium</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="amusement_park">Amusement Park</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="aquarium">Aquarium</button>
               <button className="dropdown-item" onClick={this.thePlan} type="button" value="bakery">Bakery</button>
               <button className="dropdown-item" onClick={this.thePlan} type="button" value="bar">Bar</button>
               <button className="dropdown-item" onClick={this.thePlan} type="button" value="bowling_alley">Bowling Alley</button>
@@ -106,14 +107,15 @@ class Main extends Component {
             </div>
           </div>
           <div className="divContainer">
-            {this.state.items.map(item => (
+            {this.state.value ?
+            this.state.items.map(item => (
               <Card
                 name={item.name}
                 rating={item.rating}
                 price={this.dollarFunc(item.price_level)}
                 location={item.vicinity}
               />
-            ))}
+            )) : <div></div>}
           </div>
         </div>
       </div>
