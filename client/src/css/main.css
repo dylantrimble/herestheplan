@@ -27,11 +27,10 @@ body {
   text-shadow: 1px 1px #fff;
 }
 
-.hideModal {
-  display: none;
-}
-
 .submitBtn {
+  text-shadow: 1px 1px #fff;
+}
+.modal-header {
   text-shadow: 1px 1px #fff;
 }
 
@@ -491,7 +490,6 @@ body {
   border-left-style: solid;
   height: 444px;
 }
-
 .searchDiv {
   margin-top: 100px;
   width: 100%;
