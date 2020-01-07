@@ -26,63 +26,7 @@ class App extends Component {
     const collapsed = !this.state.collapsed;
     this.setState({ collapsed });
   };
-
-  componentDidMount() {
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const geoUrl =
-      "https://www.googleapis.com/geolocation/v1/geolocate?key=" +
-      process.env.REACT_APP_GOOGLE_API_KEY;
-    fetch(geoUrl, {
-      method: "POST"
-    })
-      .then(res => res.json())
-      .then(results => {
-        this.setState({
-          latLocation: results.location.lat,
-          lngLocation: results.location.lng
-        });
-        const url =
-          "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=" +
-          process.env.REACT_APP_GOOGLE_API_KEY +
-          "&location=" +
-          this.state.latLocation +
-          "," +
-          this.state.lngLocation;
-        fetch(proxyurl + url)
-          .then(res => res.json())
-          .then(
-            results => {
-              this.setState({
-                isLoaded: true,
-                items: results.results
-              });
-            },
-            error => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
-          );
-      });
-  }
-
-  dollarFunc = jakesHappieness => {
-    switch (jakesHappieness) {
-      case 1:
-        return "$";
-      case 2:
-        return "$$";
-      case 3:
-        return "$$$";
-      case 4:
-        return "$$$$";
-      case 5:
-        return "$$$$$";
-      default:
-        return "No price range to display";
-    }
-  };
+  
   render() {
     const burgerClass = this.state.collapsed ? "active-burger" : "";
     const showUl = this.state.collapsed ? "showUl" : "";
@@ -119,8 +63,8 @@ class App extends Component {
             <Route
               exact
               path="/main"
-              render={props => (
-                <Main {...props} {...this.state} dollarFunc={this.dollarFunc} />
+              render={() => (
+                <Main />
               )}
             />
             <Route exact path="/profile" component={Profile} />

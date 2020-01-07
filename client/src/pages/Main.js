@@ -3,8 +3,8 @@ import "../css/main.css";
 import Card from "../components/Card/card";
 import EventModal from "../components/EventModal/eventModal"
 
-class Main extends Component{
-  constructor(props){
+class Main extends Component {
+  constructor(props) {
     super(props)
     this.state = {
       error: null,
@@ -22,35 +22,43 @@ class Main extends Component{
     fetch(geoUrl, {
       method: 'POST'
     })
-      .then(res => res.json())
-      .then(
-        results => {
-          console.log(results)
-          this.setState({
-            // latLocation: results.location.lat,
-            // lngLocation: results.location.lng
-          })
-          const url =
-            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=" + this.state.input + "&key=" +
-            process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
-          fetch(proxyurl + url)
-            .then(res => res.json())
-            .then(
-              results => {
-                this.setState({
-                  isLoaded: true,
-                  items: results.results
-                });
-              },
-              error => {
-                this.setState({
-                  isLoaded: true,
-                  error
-                });
-              }
-            );
+    .then(res => res.json())
+    .then(
+      results => {
+        console.log(results)
+        this.setState({
+          latLocation: results.location.lat,
+          lngLocation: results.location.lng
+        })
+        const url =
+        "https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=" + this.state.value + "&key=" +
+        process.env.REACT_APP_GOOGLE_API_KEY + "&location=" + this.state.latLocation + "," + this.state.lngLocation;
+        console.log(url);
+        fetch(proxyurl + url)
+        .then(res => res.json())
+        .then(
+          results => {
+            this.setState({
+              isLoaded: true,
+              items: results.results
+            });
+          },
+          error => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+          );
         }
-      )
+        )
+      }
+      
+  thePlan = (e) => {
+    this.setState({
+      value: e.target.value
+    })
+    this.componentDidMount();
   }
 
   dollarFunc = jakesHappieness => {
@@ -73,26 +81,44 @@ class Main extends Component{
   render() {
     return (
       <div class="mainBody">
-      <div className="searchDiv">
-        <EventModal/>
-        <form className="formSearchBar">
-          <input type="text" class="searchBar" input={this.state.value} onChange={this.handleChange}/>
-          <br />
-          <button class="searchButton" type="submit" value="Submit">Search</button>
-        </form>
-        {/* <div className="divContainer">
-          {props.items.map(item => (
-            <Card
-            name={item.name}
-            rating={item.rating}
-            price={props.dollarFunc(item.price_level)}
-            location={item.vicinity}
-            /> */}
+        <div className="searchDiv">
+          <EventModal />
+          <div className="dropdown">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              What's the plan?
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button className="dropdown-item" onClick={e => this.thePlan(e, "value")} type="button" value="amusement_park">Amusement Park</button>
+              <button className="dropdown-item" onClick={e => this.thePlan(e, "value")} type="button" value="aquarium">Aquarium</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="bakery">Bakery</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="bar">Bar</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="bowling_alley">Bowling Alley</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="cafe">Cafe</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="casino">Casino</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="shopping_mall">Mall</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="movie_theater">Movie Theater</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="museum">Museum</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="night_club">Night Club</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="parking">Parking</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="restaurant">Restaurant</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="tourist_attraction">Popular For Tourists</button>
+              <button className="dropdown-item" onClick={this.thePlan} type="button" value="zoo">Zoo</button>
+            </div>
+          </div>
+          <div className="divContainer">
+            {this.state.items.map(item => (
+              <Card
+                name={item.name}
+                rating={item.rating}
+                price={this.dollarFunc(item.price_level)}
+                location={item.vicinity}
+              />
             ))}
+          </div>
         </div>
       </div>
-  );
-}
+    );
+  }
 
 }
 export default Main;

@@ -6,11 +6,19 @@ body,
   width: 100%;
 }
 
+body {
+  font-family: 'Anton', sans-serif;
+}
 .hideModal {
   display: none;
 }
 
+.modal-header {
+  text-shadow: 1px 1px #fff;
+}
+
 .navbar {
+  text-shadow: 1px 1px #fff;
   font-family: 'Anton', sans-serif;
   position: fixed;
   top: 0;
@@ -467,10 +475,6 @@ body {
   border-left-style: solid;
   height: 444px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 68f2ae3afaed2e3434299018a83744598a248cac
 .searchDiv {
   margin-top: 100px;
   width: 100%;
