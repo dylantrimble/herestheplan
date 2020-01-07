@@ -19,13 +19,13 @@ class Profile extends Component {
                 <div>OPTIONS</div>
                 <div className="row">
                     <div className="col-md-12 options">
-                        <button className="btn-danger optionButton">OPTIONS</button>
+                        <button className="optionButton">FRIENDS</button>
                         <br />
-                        <button className="btn-danger optionButton">OPTIONS</button>
+                        <button className="optionButton">INVITES</button>
                         <br />
-                        <button className="btn-danger optionButton">OPTIONS</button>
+                        <button className="optionButton">SAVED EVENTS</button>
                         <br />
-                        <button className="btn-danger optionButton">OPTIONS</button>
+                        <button className="btn-danger">SIGN OUT</button>
                     </div>
                 </div>
             </div>
