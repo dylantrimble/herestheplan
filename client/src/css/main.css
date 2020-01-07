@@ -6,13 +6,30 @@ body,
   width: 100%;
 }
 
+.optionButton {
+  background-color: #19cc7f;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 200px;
+}
+
+.btn-danger {
+  width: 200px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
 body {
   font-family: 'Anton', sans-serif;
 }
-.hideModal {
-  display: none;
+
+.modal-header {
+  text-shadow: 1px 1px #fff;
 }
 
+.submitBtn {
+  text-shadow: 1px 1px #fff;
+}
 .modal-header {
   text-shadow: 1px 1px #fff;
 }
@@ -455,15 +472,13 @@ body {
   font-size: 40px;
   text-shadow: 1px 1px #fff;
   text-align: center;
+
 }
 .options {
   font-size: 20px;
   background-color: #fff;
   border-top-style: solid;
   height: 250px;
-}
-.optionButton {
-  margin-top: 20px;
 }
 .left2 {
   font-size: 20px;
