@@ -17,6 +17,11 @@ class App extends Component {
     loggedIn: false,
     userId: "",
     userName: "",
+    newUser: {
+      fullName: "mirko",
+      username: "mirkomaya",
+      password: "1234"
+    },
     latLocation: 0,
     lngLocation: 0,
     value: ""
@@ -59,7 +64,11 @@ class App extends Component {
             </a>
           </Nav>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route 
+              exact 
+              path="/" 
+              render={(props) => <Home {...props} {...this.state}/>}
+              />
             <Route
               exact
               path="/main"

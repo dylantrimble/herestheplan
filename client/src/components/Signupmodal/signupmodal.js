@@ -1,6 +1,8 @@
 import React from "react";
+import Button from "../Button/button"
 
-function Modal({ children }) {
+function Modal(props) {
+  console.log(props)
   return (
     <div>
       <div
@@ -30,18 +32,29 @@ function Modal({ children }) {
               <form>
                 <label>Full Name:</label>
                 <br />
-                <input type="text" />
+                <input type="text" value={props.fullName} onChange={(event) => props.handleChangeFullName(event)} />
                 <br />
                 <label>Username:</label>
                 <br />
-                <input type="text" />
+                <input type="text" value={props.username} onChange={(event) => props.handleChangeUsername(event)} />
                 <br />
                 <label>Password:</label>
                 <br />
-                <input type="text" />
+                <input type="password" value={props.password} onChange={(event) => props.handleChangePassword(event)} />
                 <hr />
               </form>
-              <footer className="buttonWrap">{children}</footer>
+              <footer className="buttonWrap">
+                <a
+                  type="button"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  className="btn signUpInBtn"
+                  data-toggle="modal"
+                  data-target="#signInModal"
+                >
+                  Sign In</a>
+                <Button className="submitBtn" onClick={event => props.handleNewUser(event)}>Submit</Button>
+              </footer>
             </div>
           </div>
         </div>
