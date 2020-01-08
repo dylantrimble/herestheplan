@@ -546,3 +546,31 @@ body {
   top: 125px;
   left: 260px;
 }
+
+.dropdown-toggle {
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.dropdown-menu.show {
+  margin-top: 133px;
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+
+/* .dropdown-menu {
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+} */
+
+
