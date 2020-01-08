@@ -1,8 +1,6 @@
 import React from "react";
-import Button from "../Button/button"
 
 function Modal(props) {
-  console.log(props)
   return (
     <div>
       <div
@@ -32,15 +30,27 @@ function Modal(props) {
               <form>
                 <label>Full Name:</label>
                 <br />
-                <input type="text" value={props.fullName} onChange={(event) => props.handleChangeFullName(event)} />
+                <input
+                  type="text"
+                  value={props.state.fullName}
+                  onChange={event => props.handleChangeFullName(event)}
+                />
                 <br />
                 <label>Username:</label>
                 <br />
-                <input type="text" value={props.username} onChange={(event) => props.handleChangeUsername(event)} />
+                <input
+                  type="text"
+                  value={props.state.username}
+                  onChange={event => props.handleChangeUsername(event)}
+                />
                 <br />
                 <label>Password:</label>
                 <br />
-                <input type="password" value={props.password} onChange={(event) => props.handleChangePassword(event)} />
+                <input
+                  type="password"
+                  value={props.state.password}
+                  onChange={event => props.handleChangePassword(event)}
+                />
                 <hr />
               </form>
               <footer className="buttonWrap">
@@ -52,8 +62,19 @@ function Modal(props) {
                   data-toggle="modal"
                   data-target="#signInModal"
                 >
-                  Sign In</a>
-                <Button className="submitBtn" onClick={event => props.handleNewUser(event)}>Submit</Button>
+                  Sign In
+                </a>
+                <a
+                  type="button"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  className="btn submitBtn"
+                  onClick={props.handleNewUser}
+                >
+                  Submit
+                </a>
               </footer>
             </div>
           </div>

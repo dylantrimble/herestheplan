@@ -25,7 +25,6 @@ class Main extends Component {
     .then(res => res.json())
     .then(
       results => {
-        console.log(results)
         this.setState({
           latLocation: results.location.lat,
           lngLocation: results.location.lng
@@ -79,16 +78,14 @@ class Main extends Component {
   };
 
   render() {
-    console.log("value: " + this.state.value)
     return (
-      <div class="mainBody">
+      <div className="mainBody">
         <div className="searchDiv">
-          <EventModal />
           <div className="dropdown">
             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               What's the plan?
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
               <button className="dropdown-item" onClick={this.thePlan} type="button" value="amusement_park">Amusement Park</button>
               <button className="dropdown-item" onClick={this.thePlan} type="button" value="aquarium">Aquarium</button>
               <button className="dropdown-item" onClick={this.thePlan} type="button" value="bakery">Bakery</button>
