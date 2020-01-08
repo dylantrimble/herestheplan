@@ -41,7 +41,8 @@ class Main extends Component {
           this.state.latLocation +
           "," +
           this.state.lngLocation;
-        fetch(proxyurl + url)
+          this.state.value ?
+          fetch(proxyurl + url)
           .then(res => res.json())
           .then(
             results => {
@@ -56,7 +57,8 @@ class Main extends Component {
                 error
               });
             }
-          );
+          )
+          : console.log("api not loaded");
       });
   }
 
