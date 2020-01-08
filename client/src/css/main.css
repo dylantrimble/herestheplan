@@ -548,17 +548,13 @@ body {
 }
 
 .dropdown-toggle {
-<<<<<<< HEAD
   width: 80%;
   margin-left: 75px;
   margin-bottom: 20px;
 }
 
 .dropdown-menu {
-  width:80%;
-  text-align: center;
-}
-=======
+
   width: 75%;
   display: block;
   margin-left: auto;
@@ -583,6 +579,3 @@ body {
   margin-left: auto;
   margin-right: auto
 } */
-
-
->>>>>>> 7d0944e7fdff004a1df868033df866e7e0e08331
