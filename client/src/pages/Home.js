@@ -5,9 +5,12 @@ import SignUpModal from "../components/Signupmodal/signupmodal";
 import SignInModal from "../components/Signinmodal/signinmodal";
 import "../css/main.css";
 import axios from "axios";
+import Nav from "../components/Nav/nav";
+
 
 class Home extends Component {
   state = {
+    collapsed: false,
     loggedIn: false,
     loginUser: "",
     loginPassword: "",
@@ -58,7 +61,7 @@ class Home extends Component {
       username: this.state.username,
       password: this.state.password
     };
-    if (!data.fullName === "" || data.username === "" || data.password === "") {
+    if (data.fullName === "" || data.username === "" || data.password === "") {
       console.log("Fill out all inputs");
     } else {
       const options = {
@@ -73,10 +76,18 @@ class Home extends Component {
     }
   }
 
+  toggleBurger = () => {
+    const collapsed = !this.state.collapsed;
+    this.setState({ collapsed });
+  };
+
   render() {
     if (this.state.loggedIn === true) {
       return <Redirect to="/main" />;
     }
+
+    const burgerClass = this.state.collapsed ? "active-burger" : "";
+    const showUl = this.state.collapsed ? "showUl" : "";
 
     this.handleChangeFullName = this.handleChangeFullName.bind(this);
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
@@ -86,9 +97,35 @@ class Home extends Component {
 
     this.handleNewUser = this.handleNewUser.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    console.log("someting" + JSON.stringify(this.props));
 
     return (
       <div className="wrapper">
+        <Nav
+          toggleBurger={this.toggleBurger}
+          burgerClass={burgerClass}
+          showUl={showUl}
+        >
+          <a className="btn" href="/">
+            Home
+          </a>
+          <a
+            className="btn"
+            data-toggle={this.state.loggedIn ? "" : "modal"}
+            data-target={this.state.loggedIn ? "" : "#signInModal"}
+            href={this.state.loggedIn ? "/main" : "/"}
+          >
+            Search
+          </a>
+          <a
+            className="btn"
+            data-toggle={this.state.loggedIn ? "" : "modal"}
+            data-target={this.state.loggedIn ? "" : "#signInModal"}
+            href={this.state.loggedIn ? "/profile" : ""}
+          >
+            {this.state.loggedIn ? "Profile" : "Sign In"}
+          </a>
+        </Nav>
         <Jumbotron>
           <button
             type="button"
