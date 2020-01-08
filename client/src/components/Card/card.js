@@ -2,10 +2,10 @@ import React from "react";
 
 function Card(props) {
   return (
-    <div class="cardDiv">
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">{props.name}</h3>
+    <div className="cardDiv">
+      <div className="card">
+        <div className="card-body">
+          <h3 className="card-title">{props.name}</h3>
           <ul>
             <li>
               <p>Rating: {props.rating}</p>
