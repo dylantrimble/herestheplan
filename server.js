@@ -19,7 +19,8 @@ require("./routes/users")(app);
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
-  express.static(path.join(__dirname, '../client/build'))
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+
 });
 
 // Syncing our sequelize models and then starting our Express app
