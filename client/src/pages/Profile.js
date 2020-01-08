@@ -3,10 +3,9 @@ import "../css/main.css";
 import Nav from "../components/Nav/nav";
 
 class Profile extends Component {
-
   state = {
-    collapsed: false,
-  }
+    collapsed: false
+  };
 
   toggleBurger = () => {
     const collapsed = !this.state.collapsed;
@@ -14,7 +13,6 @@ class Profile extends Component {
   };
 
   render() {
-
     const burgerClass = this.state.collapsed ? "active-burger" : "";
     const showUl = this.state.collapsed ? "showUl" : "";
 
@@ -25,14 +23,14 @@ class Profile extends Component {
           burgerClass={burgerClass}
           showUl={showUl}
         >
-          <a className="btn" href="/">
-            Home
-          </a>
           <a className="btn" href="/main">
             Search
           </a>
           <a className="btn" href="/profile">
             Profile
+          </a>
+          <a className="btn" href="/">
+            Sign Out
           </a>
         </Nav>
         <div className="container">
