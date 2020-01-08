@@ -100,9 +100,6 @@ class Main extends Component {
           burgerClass={burgerClass}
           showUl={showUl}
         >
-          <a className="btn" href="/">
-            Home
-          </a>
           <a
             className="btn"
             href="/main"
@@ -114,6 +111,9 @@ class Main extends Component {
             href="/profile"
           >
             Profile
+          </a>
+          <a className="btn" href="/">
+            Sign Out
           </a>
         </Nav>
         <div className="searchDiv">
