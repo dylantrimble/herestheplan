@@ -262,8 +262,8 @@ class Main extends Component {
                 />
               ))
             ) : (
-              <div></div>
-            )}
+                <div></div>
+              )}
           </div>
         </div>
       </div>

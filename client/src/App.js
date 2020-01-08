@@ -8,22 +8,6 @@ import "./css/main.css";
 // import Sequelize from "../src/database/connection
 
 class App extends Component {
-  state = {
-    error: null,
-    isLoaded: false,
-    items: [],
-    loggedIn: false,
-    userId: "",
-    userName: "",
-    newUser: {
-      fullName: "mirko",
-      username: "mirkomaya",
-      password: "1234"
-    },
-    latLocation: 0,
-    lngLocation: 0,
-    value: ""
-  };
 
   render() {
     return (
