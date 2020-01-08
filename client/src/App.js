@@ -31,7 +31,7 @@ class App extends Component {
     const collapsed = !this.state.collapsed;
     this.setState({ collapsed });
   };
-  
+
   render() {
     const burgerClass = this.state.collapsed ? "active-burger" : "";
     const showUl = this.state.collapsed ? "showUl" : "";
@@ -64,18 +64,8 @@ class App extends Component {
             </a>
           </Nav>
           <Switch>
-            <Route 
-              exact 
-              path="/" 
-              render={(props) => <Home {...props} {...this.state}/>}
-              />
-            <Route
-              exact
-              path="/main"
-              render={() => (
-                <Main />
-              )}
-            />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/main" render={() => <Main />} />
             <Route exact path="/profile" component={Profile} />
             <Route component={NoMatch} />
           </Switch>

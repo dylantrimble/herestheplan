@@ -1,5 +1,5 @@
 var db = require("../models");
-var bcrypt = require('bcrypt')
+var bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 module.exports = function(app) {
@@ -11,17 +11,31 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/users/:id", function(req, res) {
-    // 2; Add a join to include all of the Author's Posts here
+  app.get("/api/user/:username/:password", function(req, res) {
     db.User.findOne({
       where: {
-        id: req.params.id
+        username: req.params.username
       }
-    }).then(function(dbUser) {
-      res.json(dbUser);
+    }).then(function(user) {
+      console.log(user);
+      if (user == null) {
+        console.log("fail");
+      } else {
+        bcrypt.compare(req.params.password, user.password, function(
+          err,
+          result
+        ) {
+          if (result == true) {
+            res.json(user);
+            console.log("Success");
+          } else {
+            res.json(result)
+            console.log("Incorrect password");
+          }
+        });
+      }
     });
   });
-
 
   app.post("/api/newUser", function(req, res) {
     bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
