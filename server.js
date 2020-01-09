@@ -5,6 +5,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static("/client/build"));
+
 const PORT = process.env.PORT || 3002;
 
 // Requiring our models for syncing
@@ -25,11 +27,8 @@ app.get("*", function(req, res) {
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
-    if (process.env.NODE_ENV === "production") {
-      app.use(express.static("/client/build"));
-    }
   });
 });
