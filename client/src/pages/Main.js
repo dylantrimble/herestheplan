@@ -95,8 +95,6 @@ class Main extends Component {
     const burgerClass = this.state.collapsed ? "active-burger" : "";
     const showUl = this.state.collapsed ? "showUl" : "";
 
-    console.log(process.env.REACT_APP_GOOGLE_API_KEY)
-
     return (
       <div className="mainBody">
         <Nav
