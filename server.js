@@ -16,19 +16,25 @@ console.info('after db initialization');
 // =============================================================
 require("./routes/users")(app);
 
+<<<<<<< HEAD
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+=======
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+>>>>>>> aebbdc003741a4d25fe5990f79b5d787cf9cb3d0
 });
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
-    if (process.env.NODE_ENV === "production") {
-      app.use(express.static("client/build"));
-    }
   });
 });
