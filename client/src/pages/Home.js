@@ -7,7 +7,6 @@ import "../css/main.css";
 import axios from "axios";
 import Nav from "../components/Nav/nav";
 
-
 class Home extends Component {
   state = {
     collapsed: false,
@@ -40,14 +39,23 @@ class Home extends Component {
     this.setState({ password: event.target.value });
   }
 
+  useLocalStorage = (localItem) => {
+    this.setState({ loggedIn: true });
+    localStorage.setItem('user', localItem);
+  };
+
   handleLogin(event) {
     event.preventDefault();
     axios
       .get(`/api/user/${this.state.loginUser}/${this.state.loginPassword} `)
       .then(response => {
-        response.data
-          ? this.setState({ loggedIn: true })
-          : this.setState({ loggedIn: false });
+        console.log(response.data);
+        const user = {
+          id: response.data.id,
+          fullName: response.data.fullName,
+          userName: response.data.username
+        }
+        response.data ? this.useLocalStorage(JSON.stringify(user)) : this.setState({ loggedIn: false });
       })
       .catch(function(error) {
         console.log(error);
