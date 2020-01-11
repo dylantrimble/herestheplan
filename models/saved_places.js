@@ -3,5 +3,13 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     location: DataTypes.STRING
   });
+
+  SavedPlaces.associate = models => {
+    SavedPlaces.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+  }
   return SavedPlaces;
 };
