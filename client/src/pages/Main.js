@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css/main.css";
 import Card from "../components/Card/card";
 import Nav from "../components/Nav/nav";
+import axios from "axios";
 
 
 class Main extends Component {
@@ -50,6 +51,7 @@ class Main extends Component {
                 isLoaded: true,
                 items: results.results
               });
+              console.log(this.state.items)
             },
             error => {
               this.setState({
@@ -85,6 +87,25 @@ class Main extends Component {
         return "No price range to display";
     }
   };
+
+  saveFave = (event) => {
+    event.preventDefault();
+    const currentCard = this.state.items.filter(item => item.id === event.target.id)
+    console.log(currentCard[0].name)
+    const data = {
+      name: currentCard[0].name,
+      location: currentCard[0].vicinity
+    }
+    console.log(data)
+    axios
+      .post(`/api/saved_places`, data)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 
   toggleBurger = () => {
     const collapsed = !this.state.collapsed;
@@ -261,6 +282,8 @@ class Main extends Component {
                   rating={item.rating}
                   price={this.dollarFunc(item.price_level)}
                   location={item.vicinity}
+                  id={item.id}
+                  handleFave={event => this.saveFave(event)}
                 />
               ))
             ) : (

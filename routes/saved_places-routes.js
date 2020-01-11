@@ -20,7 +20,10 @@ module.exports = function(app) {
   });
 
   app.post("/api/saved_places", function(req, res) {
-    db.SavedPlaces.create(req.body).then(function(dbSavedPlaces) {
+    db.SavedPlaces.create({
+      name: req.body.name,
+      location: req.body.location
+    }).then(function(dbSavedPlaces) {
       res.json(dbSavedPlaces);
     });
   });
