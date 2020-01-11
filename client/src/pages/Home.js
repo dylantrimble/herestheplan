@@ -70,7 +70,7 @@ class Home extends Component {
       password: this.state.password
     };
     if (data.fullName === "" || data.username === "" || data.password === "") {
-      console.log("Fill out all inputs");
+      alert("Fill out all inputs");
     } else {
       const options = {
         method: "POST",
