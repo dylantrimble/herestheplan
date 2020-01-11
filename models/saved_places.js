@@ -5,5 +5,13 @@ module.exports = function(sequelize, DataTypes) {
     event: DataTypes.STRING,
     date: DataTypes.DATE
   });
+
+  SavedPlaces.associate = models => {
+    SavedPlaces.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+  }
   return SavedPlaces;
 };
