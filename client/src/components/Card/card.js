@@ -17,7 +17,7 @@ function Card(props) {
           <p className="cardLocation">{props.location}</p>
           <ul className="card-buttons">
             <li>
-              <button className="btn submitBtn">Add to Event</button>
+              <button data-toggle="modal" data-target="#saveModal" className="btn submitBtn">Add to Event</button>
             </li>
             <li>
               <button className="btn submitBtn">Favorite</button>
