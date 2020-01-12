@@ -4,5 +4,14 @@ module.exports = function(sequelize, DataTypes) {
     event: DataTypes.STRING,
     date: DataTypes.DATE
   });
+
+  Events.associate = models => {
+    Events.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+  }
+
   return Events;
 };

@@ -17,10 +17,10 @@ function Card(props) {
           <p className="cardLocation">{props.location}</p>
           <ul className="card-buttons">
             <li>
-              <button data-toggle="modal" data-target="#saveModal" className="btn submitBtn">Add to Event</button>
+              <button className="btn submitBtn" id={props.id}>Add to Event</button>
             </li>
             <li>
-              <button className="btn submitBtn">Favorite</button>
+              <button className="btn submitBtn" onClick={props.handleFave} id={props.id}>Favorite</button>
             </li>
           </ul>
         </div>

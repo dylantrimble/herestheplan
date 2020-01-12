@@ -15,6 +15,7 @@ console.info('after db initialization');
 // Routes
 // =============================================================
 require("./routes/users")(app);
+require("./routes/saved_places-routes")(app);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

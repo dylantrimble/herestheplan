@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css/main.css";
 import Card from "../components/Card/card";
 import Nav from "../components/Nav/nav";
+import axios from "axios";
 
 
 class Main extends Component {
@@ -44,6 +45,7 @@ class Main extends Component {
           this.state.lngLocation;
         this.state.value ?
           fetch(proxyurl + url)
+<<<<<<< HEAD
             .then(res => res.json())
             .then(
               results => {
@@ -59,6 +61,24 @@ class Main extends Component {
                 });
               }
             )
+=======
+          .then(res => res.json())
+          .then(
+            results => {
+              this.setState({
+                isLoaded: true,
+                items: results.results
+              });
+              console.log(this.state.items)
+            },
+            error => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
+>>>>>>> 98b83d31f39280193fab2824709213bc67b75080
           : console.log("api not loaded");
       });
   }
@@ -86,6 +106,25 @@ class Main extends Component {
         return "No price range to display";
     }
   };
+
+  saveFave = (event) => {
+    event.preventDefault();
+    const currentCard = this.state.items.filter(item => item.id === event.target.id)
+    console.log(currentCard[0].name)
+    const data = {
+      name: currentCard[0].name,
+      location: currentCard[0].vicinity
+    }
+    console.log(data)
+    axios
+      .post(`/api/saved_places`, data)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 
   toggleBurger = () => {
     const collapsed = !this.state.collapsed;
@@ -292,6 +331,7 @@ class Main extends Component {
               </button>
               </div>
             </div>
+<<<<<<< HEAD
             <div className="divContainer">
               {this.state.value ? (
                 this.state.items.map(item => (
@@ -307,6 +347,24 @@ class Main extends Component {
                 )}
             </div>
 
+=======
+          </div>
+          <div className="divContainer">
+            {this.state.value ? (
+              this.state.items.map(item => (
+                <Card
+                  name={item.name}
+                  rating={item.rating}
+                  price={this.dollarFunc(item.price_level)}
+                  location={item.vicinity}
+                  id={item.id}
+                  handleFave={event => this.saveFave(event)}
+                />
+              ))
+            ) : (
+                <div></div>
+              )}
+>>>>>>> 98b83d31f39280193fab2824709213bc67b75080
           </div>
         </div>
         );
