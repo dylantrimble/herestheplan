@@ -15,6 +15,7 @@ console.info('after db initialization');
 // Routes
 // =============================================================
 require("./routes/users")(app);
+require("./routes/saved_places-routes")(app);
 
 <<<<<<< HEAD
 // Send every request to the React app
