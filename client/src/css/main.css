@@ -6,6 +6,10 @@ body,
   width: 100%;
 }
 
+.fark {
+  margin-top: 40px;
+}
+
 .optionButton {
   background-color: #19cc7f;
   margin-top: 20px;
@@ -548,6 +552,13 @@ body {
 }
 
 .dropdown-toggle {
+  width: 80%;
+  margin-left: 75px;
+  margin-bottom: 20px;
+}
+
+.dropdown-menu {
+
   width: 75%;
   display: block;
   margin-left: auto;
@@ -555,7 +566,11 @@ body {
   margin-bottom: 50px;
 }
 
-.dropdown-menu.show {
+.saveDropdown {
+  width: 160px;
+}
+
+.searchDropdown.show {
   margin-top: 133px;
   width: 75%;
   display: block;
@@ -565,12 +580,9 @@ body {
   text-align: center;
 }
 
-
-/* .dropdown-menu {
-  width: 75%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-} */
-
+#saveModal {
+  margin-top: 160px;
+  text-align: center;
+  height: 2000px;
+}
 
