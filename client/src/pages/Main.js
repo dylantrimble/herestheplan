@@ -45,7 +45,6 @@ class Main extends Component {
           this.state.lngLocation;
         this.state.value ?
           fetch(proxyurl + url)
-<<<<<<< HEAD
             .then(res => res.json())
             .then(
               results => {
@@ -61,24 +60,6 @@ class Main extends Component {
                 });
               }
             )
-=======
-          .then(res => res.json())
-          .then(
-            results => {
-              this.setState({
-                isLoaded: true,
-                items: results.results
-              });
-              console.log(this.state.items)
-            },
-            error => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
-          )
->>>>>>> 98b83d31f39280193fab2824709213bc67b75080
           : console.log("api not loaded");
       });
   }
@@ -110,10 +91,11 @@ class Main extends Component {
   saveFave = (event) => {
     event.preventDefault();
     const currentCard = this.state.items.filter(item => item.id === event.target.id)
-    console.log(currentCard[0].name)
+    const user = JSON.parse(window.localStorage.getItem('user'))
     const data = {
       name: currentCard[0].name,
-      location: currentCard[0].vicinity
+      location: currentCard[0].vicinity,
+      userId: user.id
     }
     console.log(data)
     axios
@@ -331,7 +313,6 @@ class Main extends Component {
               </button>
               </div>
             </div>
-<<<<<<< HEAD
             <div className="divContainer">
               {this.state.value ? (
                 this.state.items.map(item => (
@@ -347,24 +328,6 @@ class Main extends Component {
                 )}
             </div>
 
-=======
-          </div>
-          <div className="divContainer">
-            {this.state.value ? (
-              this.state.items.map(item => (
-                <Card
-                  name={item.name}
-                  rating={item.rating}
-                  price={this.dollarFunc(item.price_level)}
-                  location={item.vicinity}
-                  id={item.id}
-                  handleFave={event => this.saveFave(event)}
-                />
-              ))
-            ) : (
-                <div></div>
-              )}
->>>>>>> 98b83d31f39280193fab2824709213bc67b75080
           </div>
         </div>
         );
