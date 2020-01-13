@@ -15,6 +15,10 @@ class Profile extends Component {
     this.setState({ collapsed });
   };
 
+  storageClear = () => {
+    localStorage.clear();
+  }
+
   grabFaves = (event) => {
     event.preventDefault();
     axios
@@ -46,7 +50,7 @@ class Profile extends Component {
           <a className="btn" href="/profile">
             Profile
           </a>
-          <a className="btn" href="/">
+          <a className="btn" href="/" onClick={this.storageClear}>
             Sign Out
           </a>
         </Nav>
@@ -83,7 +87,7 @@ class Profile extends Component {
                   <button className="optionButton" onClick={event => this.grabFaves(event)}>FAVORITED EVENTS</button>
                   <br />
                   <a href="/">
-                  <button className="btn-danger">SIGN OUT</button>
+                  <button className="btn-danger" onClick={this.storageClear}>SIGN OUT</button>
                   </a>
                 </div>
               </div>
