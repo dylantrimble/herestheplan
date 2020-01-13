@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css/main.css";
 import Card from "../components/Card/card";
 import Nav from "../components/Nav/nav";
+import FillerImages from "../components/FillerImages/filler_card_images"
 import axios from "axios";
 
 class Main extends Component {
@@ -198,149 +199,151 @@ class Main extends Component {
             Sign Out
           </a>
         </Nav>
-        <main>
-          <h3>Welcome {userName.userName}</h3>
-
-          <div className="searchDiv">
-            <div className="dropdown">
-              <button
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenu2"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                What's the plan?
-              </button>
-              <div
-                className="dropdown-menu searchDropdown"
-                aria-labelledby="dropdownMenu2"
-              >
+        <main className="main-page-container">
+          <div className="header-search-container">
+            <h2>Welcome {userName.userName}!</h2>
+          <p>Search for locations near you</p>
+            <div className="searchDiv">
+              <div className="dropdown">
                 <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
+                  className="btn btn-secondary dropdown-toggle"
                   type="button"
-                  value="amusement_park"
+                  id="dropdownMenu2"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
                 >
-                  Amusement Park
+                  What's the plan?
                 </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="aquarium"
+                <div
+                  className="dropdown-menu searchDropdown"
+                  aria-labelledby="dropdownMenu2"
                 >
-                  Aquarium
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="bakery"
-                >
-                  Bakery
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="bar"
-                >
-                  Bar
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="bowling_alley"
-                >
-                  Bowling Alley
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="cafe"
-                >
-                  Cafe
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="casino"
-                >
-                  Casino
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="shopping_mall"
-                >
-                  Mall
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="movie_theater"
-                >
-                  Movie Theater
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="museum"
-                >
-                  Museum
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="night_club"
-                >
-                  Night Club
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="parking"
-                >
-                  Parking
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="restaurant"
-                >
-                  Restaurant
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="tourist_attraction"
-                >
-                  Popular For Tourists
-                </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="zoo"
-                >
-                  Zoo
-                </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="amusement_park"
+                  >
+                    Amusement Park
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="aquarium"
+                  >
+                    Aquarium
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="bakery"
+                  >
+                    Bakery
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="bar"
+                  >
+                    Bar
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="bowling_alley"
+                  >
+                    Bowling Alley
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="cafe"
+                  >
+                    Cafe
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="casino"
+                  >
+                    Casino
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="shopping_mall"
+                  >
+                    Mall
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="movie_theater"
+                  >
+                    Movie Theater
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="museum"
+                  >
+                    Museum
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="night_club"
+                  >
+                    Night Club
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="parking"
+                  >
+                    Parking
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="restaurant"
+                  >
+                    Restaurant
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="tourist_attraction"
+                  >
+                    Popular For Tourists
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={this.thePlan}
+                    type="button"
+                    value="zoo"
+                  >
+                    Zoo
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div className="divContainer">
+          <div className="card-container">
             {this.state.value ? (
               this.state.items.map(item => (
                 <Card
@@ -353,7 +356,7 @@ class Main extends Component {
                 />
               ))
             ) : (
-              <div></div>
+              <FillerImages/>
             )}
           </div>
         </main>

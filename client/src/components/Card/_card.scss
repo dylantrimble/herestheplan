@@ -1,50 +1,78 @@
-.divContainer {
+// .divContainer {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: space-evenly;
+//   .cardDiv {
+//     width: 400px;
+//     margin-bottom: 20px;
+//     box-shadow: 0 0 15px black;
+//     .card-body {
+//       background-image: url("../image/card-background.jpg");
+//       background-repeat: no-repeat;
+//       height: 250px;
+//       position: relative;
+
+//       .card-title {
+//           text-align: center;
+//       }
+//       p {
+//         margin: 0;
+//       }
+//       ul {
+//           padding: 0;
+//         list-style-type: none;
+//         display: flex;
+//         justify-content: space-evenly;
+//         button {
+//             width: 120px;
+//             height: 35px;
+//         }
+//       }
+//       .card-buttons {
+//           position: absolute;
+//             bottom: 0;
+//             left: 50%;
+//             transform: translateX(-50%);
+//             margin: 0 auto;
+//             button {
+//                 margin: 10px;
+//             }
+//       }
+//       .cardLocation {
+//           text-align: center;
+//           width: 250px;
+//           margin: 0 auto;
+//       }
+//     }
+//   }
+
+// }
+
+.card-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  .cardDiv {
+  .filler-image-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .image-card {
+    margin: 20px;
+
+  }
+  .card {
     width: 400px;
     margin-bottom: 20px;
-    box-shadow: 0 0 15px black;
-    .card-body {
-      background-image: url("../image/card-background.jpg");
-      background-repeat: no-repeat;
-      height: 250px;
-      position: relative;
-
-      .card-title {
-          text-align: center;
-      }
-      p {
-        margin: 0;
-      }
-      ul {
-          padding: 0;
-        list-style-type: none;
-        display: flex;
-        justify-content: space-evenly;
-        button {
-            width: 120px;
-            height: 35px;
-        }
-      }
-      .card-buttons {
-          position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 0 auto;
-            button {
-                margin: 10px;
-            }
-      }
-      .cardLocation {
-          text-align: center;
-          width: 250px;
-          margin: 0 auto;
-      }
+    box-shadow: 0 0 15px $dark-primary-color;
+    border: none;
+    border-radius: 5px;
+    img {
+      width: 400px;
+      border-radius: 5px;
     }
   }
-
 }

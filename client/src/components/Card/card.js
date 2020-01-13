@@ -2,7 +2,6 @@ import React from "react";
 
 function Card(props) {
   return (
-    <div className="cardDiv">
       <div className="card">
         <div className="card-body">
           <h3 className="card-title">{props.name}</h3>
@@ -25,7 +24,6 @@ function Card(props) {
           </ul>
         </div>
       </div>
-    </div>
   );
 }
 
