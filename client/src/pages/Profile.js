@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import "../css/main.css";
 import Nav from "../components/Nav/nav";
+import Favorites from "../components/Favorites/favorites"
+import axios from "axios"
 
 class Profile extends Component {
   state = {
-    collapsed: false
+    collapsed: false,
+    favorites: []
   };
 
   toggleBurger = () => {
@@ -12,8 +15,23 @@ class Profile extends Component {
     this.setState({ collapsed });
   };
 
+<<<<<<< HEAD
   storageClear = () => {
     localStorage.clear();
+=======
+  grabFaves = (event) => {
+    event.preventDefault();
+    axios
+      .get(`/api/saved_places`)
+      .then(response => {
+        this.setState({
+          favorites: response.data
+        })
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+>>>>>>> f57f24fe725bae814aa6d3576bdfa298ccf568ba
   }
 
   render() {
@@ -37,6 +55,12 @@ class Profile extends Component {
             Sign Out
           </a>
         </Nav>
+        {this.state.favorites.map(faves => (
+                <Favorites
+                  name={faves.name}
+                  location={faves.location}
+                />
+              ))}
         <div className="container">
           <div className="row">
             <div className="col-md-5 left">
@@ -61,7 +85,15 @@ class Profile extends Component {
                   <br />
                   <button className="optionButton">SAVED EVENTS</button>
                   <br />
+<<<<<<< HEAD
                   <button className="btn-danger" onClick={this.storageClear}>SIGN OUT</button>
+=======
+                  <button className="optionButton" onClick={event => this.grabFaves(event)}>FAVORITED EVENTS</button>
+                  <br />
+                  <a href="/">
+                  <button className="btn-danger">SIGN OUT</button>
+                  </a>
+>>>>>>> f57f24fe725bae814aa6d3576bdfa298ccf568ba
                 </div>
               </div>
             </div>

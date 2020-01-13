@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/main.css";
 import Card from "../components/Card/card";
 import Nav from "../components/Nav/nav";
-import FillerImages from "../components/FillerImages/filler_card_images"
+import FillerImages from "../components/FillerImages/filler_card_images";
 import axios from "axios";
 
 class Main extends Component {
@@ -93,10 +93,11 @@ class Main extends Component {
     const currentCard = this.state.items.filter(
       item => item.id === event.target.id
     );
-    console.log(currentCard[0].name);
+    const user = JSON.parse(window.localStorage.getItem("user"));
     const data = {
       name: currentCard[0].name,
-      location: currentCard[0].vicinity
+      location: currentCard[0].vicinity,
+      userId: user.id
     };
     console.log(data);
     axios
@@ -202,7 +203,7 @@ class Main extends Component {
         <main className="main-page-container">
           <div className="header-search-container">
             <h2>Welcome {userName.userName}!</h2>
-          <p>Search for locations near you</p>
+            <p>Search for locations near you</p>
             <div className="searchDiv">
               <div className="dropdown">
                 <button
@@ -356,7 +357,7 @@ class Main extends Component {
                 />
               ))
             ) : (
-              <FillerImages/>
+              <FillerImages />
             )}
           </div>
         </main>
