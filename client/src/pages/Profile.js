@@ -12,6 +12,10 @@ class Profile extends Component {
     this.setState({ collapsed });
   };
 
+  storageClear = () => {
+    localStorage.clear();
+  }
+
   render() {
     const burgerClass = this.state.collapsed ? "active-burger" : "";
     const showUl = this.state.collapsed ? "showUl" : "";
@@ -29,7 +33,7 @@ class Profile extends Component {
           <a className="btn" href="/profile">
             Profile
           </a>
-          <a className="btn" href="/">
+          <a className="btn" href="/" onClick={this.storageClear}>
             Sign Out
           </a>
         </Nav>
@@ -57,7 +61,7 @@ class Profile extends Component {
                   <br />
                   <button className="optionButton">SAVED EVENTS</button>
                   <br />
-                  <button className="btn-danger">SIGN OUT</button>
+                  <button className="btn-danger" onClick={this.storageClear}>SIGN OUT</button>
                 </div>
               </div>
             </div>

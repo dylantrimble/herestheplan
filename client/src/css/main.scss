@@ -28,33 +28,37 @@ body {
   background-position: center;
 }
 
-.searchDiv {
-  margin-top: 100px;
-  width: 100%;
-  .formSearchBar {
-    margin: 0 auto;
-    display: block;
-    width: 400px;
-  }
-  .searchBar {
-    position: relative;
-    width: 400px;
-    padding-left: 10px;
-    font-size: 30px;
-    border-radius: 30px;
-    box-shadow: 0 0 10px black;
-  }
-  .searchButton {
-    position: relative;
-    left: 40%;
-    width: 20%;
-    margin: 10px 0 40px;
-    background-color: $primary-color;
-    border-radius: 40px;
-    border: none;
-    box-shadow: 0 0 10px black;
-    &:hover {
-      background: $dark-primary-color;
-    }
-  }
+// .searchDiv {
+//   margin-top: 100px;
+//   width: 100%;
+//   .formSearchBar {
+//     margin: 0 auto;
+//     display: block;
+//     width: 400px;
+//   }
+//   .searchBar {
+//     position: relative;
+//     width: 400px;
+//     padding-left: 10px;
+//     font-size: 30px;
+//     border-radius: 30px;
+//     box-shadow: 0 0 10px black;
+//   }
+//   .searchButton {
+//     position: relative;
+//     left: 40%;
+//     width: 20%;
+//     margin: 10px 0 40px;
+//     background-color: $primary-color;
+//     border-radius: 40px;
+//     border: none;
+//     box-shadow: 0 0 10px black;
+//     &:hover {
+//       background: $dark-primary-color;
+//     }
+//   }
+// }
+
+main {
+  margin-top: 51px;
 }
