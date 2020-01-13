@@ -91,10 +91,11 @@ class Main extends Component {
   saveFave = (event) => {
     event.preventDefault();
     const currentCard = this.state.items.filter(item => item.id === event.target.id)
-    console.log(currentCard[0].name)
+    const user = JSON.parse(window.localStorage.getItem('user'))
     const data = {
       name: currentCard[0].name,
-      location: currentCard[0].vicinity
+      location: currentCard[0].vicinity,
+      userId: user.id
     }
     console.log(data)
     axios
