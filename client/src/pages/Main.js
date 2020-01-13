@@ -103,7 +103,7 @@ class Main extends Component {
       .then(response => {
         console.log(response)
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -136,201 +136,203 @@ class Main extends Component {
                       <button type="button" class="btn btn-info saveDropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Action
                       </button>
-                        <div class="dropdown-menu saveDropdown">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
+                      <div class="dropdown-menu saveDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
                       </div>
-
-                      <footer>
-                        <button class="btn submitBtn">Let's Go!</button></footer>
                     </div>
 
+                    <footer>
+                      <button class="btn submitBtn">Let's Go!</button></footer>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
-
-
-
-          <Nav
-            toggleBurger={this.toggleBurger}
-            burgerClass={burgerClass}
-            showUl={showUl}
-          >
-            <a
-              className="btn"
-              href="/main"
-            >
-              Search
-          </a>
-            <a
-              className="btn"
-              href="/profile"
-            >
-              Profile
-          </a>
-            <a className="btn" href="/">
-              Sign Out
-          </a>
-          </Nav>
-          <div className="searchDiv">
-            <div className="dropdown">
-              <button
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenu2"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                What's the plan?
-            </button>
-              <div className="dropdown-menu searchDropdown" aria-labelledby="dropdownMenu2">
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="amusement_park"
-                >
-                  Amusement Park
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="aquarium"
-                >
-                  Aquarium
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="bakery"
-                >
-                  Bakery
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="bar"
-                >
-                  Bar
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="bowling_alley"
-                >
-                  Bowling Alley
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="cafe"
-                >
-                  Cafe
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="casino"
-                >
-                  Casino
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="shopping_mall"
-                >
-                  Mall
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="movie_theater"
-                >
-                  Movie Theater
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="museum"
-                >
-                  Museum
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="night_club"
-                >
-                  Night Club
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="parking"
-                >
-                  Parking
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="restaurant"
-                >
-                  Restaurant
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="tourist_attraction"
-                >
-                  Popular For Tourists
-              </button>
-                <button
-                  className="dropdown-item"
-                  onClick={this.thePlan}
-                  type="button"
-                  value="zoo"
-                >
-                  Zoo
-              </button>
-              </div>
-            </div>
-            <div className="divContainer">
-              {this.state.value ? (
-                this.state.items.map(item => (
-                  <Card
-                    name={item.name}
-                    rating={item.rating}
-                    price={this.dollarFunc(item.price_level)}
-                    location={item.vicinity}
-                  />
-                ))
-              ) : (
-                  <div></div>
-                )}
-            </div>
-
-          </div>
         </div>
-        );
-      }
-    }
-    export default Main;
+
+
+
+        <Nav
+          toggleBurger={this.toggleBurger}
+          burgerClass={burgerClass}
+          showUl={showUl}
+        >
+          <a
+            className="btn"
+            href="/main"
+          >
+            Search
+          </a>
+          <a
+            className="btn"
+            href="/profile"
+          >
+            Profile
+          </a>
+          <a className="btn" href="/">
+            Sign Out
+          </a>
+        </Nav>
+        <div className="searchDiv">
+          <div className="dropdown">
+            <button
+              className="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenu2"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              What's the plan?
+            </button>
+            <div className="dropdown-menu searchDropdown" aria-labelledby="dropdownMenu2">
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="amusement_park"
+              >
+                Amusement Park
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="aquarium"
+              >
+                Aquarium
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="bakery"
+              >
+                Bakery
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="bar"
+              >
+                Bar
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="bowling_alley"
+              >
+                Bowling Alley
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="cafe"
+              >
+                Cafe
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="casino"
+              >
+                Casino
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="shopping_mall"
+              >
+                Mall
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="movie_theater"
+              >
+                Movie Theater
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="museum"
+              >
+                Museum
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="night_club"
+              >
+                Night Club
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="parking"
+              >
+                Parking
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="restaurant"
+              >
+                Restaurant
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="tourist_attraction"
+              >
+                Popular For Tourists
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={this.thePlan}
+                type="button"
+                value="zoo"
+              >
+                Zoo
+              </button>
+            </div>
+          </div>
+          <div className="divContainer">
+            {this.state.value ? (
+              this.state.items.map(item => (
+                <Card
+                  name={item.name}
+                  rating={item.rating}
+                  price={this.dollarFunc(item.price_level)}
+                  location={item.vicinity}
+                  id={item.id}
+                  handleFave={event => this.saveFave(event)}
+                />
+              ))
+            ) : (
+                <div></div>
+              )}
+          </div>
+
+        </div>
+      </div>
+    );
+  }
+}
+export default Main;
