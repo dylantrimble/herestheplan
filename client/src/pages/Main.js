@@ -94,7 +94,7 @@ class Main extends Component {
 
   createEvent = event => {
     const currentCard = this.state.items.filter(
-      item => item.id == event.target.id
+      item => item.id === event.target.id
     );
     this.setState(
       {
@@ -147,7 +147,7 @@ class Main extends Component {
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}
           showUl={showUl}
-          storageClear = {this.storageClear}
+          storageClear={this.storageClear}
         >
           <a className="btn" href="/main">
             Search

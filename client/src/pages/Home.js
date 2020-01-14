@@ -83,9 +83,19 @@ class Home extends Component {
         body: JSON.stringify(data)
       };
       fetch("/api/newUser", options).then(response => {
-        console.log(response);
+        axios
+          .get(`/api/user/${data.username}/${data.password} `)
+          .then(response => {
+            const user = {
+              id: response.data.id,
+              fullName: response.data.fullName,
+              userName: response.data.username
+            };
+            response.data
+              ? this.useLocalStorage(JSON.stringify(user))
+              : this.setState({ loggedIn: false });
+          });
       });
-      this.setState({ loggedIn: true });
     }
   }
 
