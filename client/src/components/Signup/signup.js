@@ -14,7 +14,7 @@ function SignUp(props) {
               <p className="empty-input-error">Please fill out all inputs</p>
             )}
             <div className="form-group">
-              <label for="Fullname-text"></label>
+              <label htmlFor="Fullname-text"></label>
               <input
                 type="text"
                 name="fullname"

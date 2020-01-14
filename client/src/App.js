@@ -5,7 +5,6 @@ import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import "./css/main.css";
-// import Sequelize from "../src/database/connection
 
 class App extends Component {
 
