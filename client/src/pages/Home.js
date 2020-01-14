@@ -42,8 +42,8 @@ class Home extends Component {
   }
 
   useLocalStorage = (localItem) => {
-    this.setState({ loggedIn: true });
     localStorage.setItem('user', localItem);
+    this.setState({ loggedIn: true });
   };
 
   handleLogin(event) {
@@ -57,6 +57,7 @@ class Home extends Component {
           fullName: response.data.fullName,
           userName: response.data.username
         }
+        console.log(user)
         response.data ? this.useLocalStorage(JSON.stringify(user)) : this.setState({ loggedIn: false });
       })
       .catch(function(error) {

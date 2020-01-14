@@ -20,9 +20,13 @@ module.exports = function(app) {
   });
 
   app.post("/api/saved_places", function(req, res) {
+    const userId = req.body.userId
+    console.log(userId)
     db.SavedPlaces.create({
+      include: [db.User],
       name: req.body.name,
-      location: req.body.location
+      location: req.body.location,
+      UserId: userId
     }).then(function(dbSavedPlaces) {
       res.json(dbSavedPlaces);
     });

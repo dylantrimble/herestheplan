@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   background: $primary-color;
-  color: $secondary-color;
+  color: white;
   z-index: 1;
   width: 100%;
   padding: 0;
@@ -22,8 +22,10 @@
     }
     a {
       width: 100%;
+      color: $secondary-color;
       &:hover {
-        background: $dark-primary-color;
+        color: #007bfe;
+        background: #444;
       }
     }
   }
