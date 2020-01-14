@@ -163,8 +163,12 @@ class Home extends Component {
           </button>
         </Jumbotron> */}
         <JumbotronHome>
-          <Login>
-          </Login>
+          <Login
+            state={this.state}
+            handleChangeLoginUser={this.handleChangeLoginUser}
+            handleChangeLoginPassword={this.handleChangeLoginPassword}
+            handleLogin={this.handleLogin}
+          />
         </JumbotronHome>
         {this.state.modalHide ? (
           <div></div>

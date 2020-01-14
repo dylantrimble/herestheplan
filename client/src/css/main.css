@@ -10,7 +10,7 @@
   color: white;
   z-index: 1;
   width: 100%;
-  padding: 0;
+  padding: 6px 0;
   border-bottom: 1px solid black;
 }
 
@@ -135,7 +135,7 @@
   .navbar ul li {
     border: none;
   }
-  .navbar .burger {
+  .navbar .burger-container {
     display: none;
   }
 }
@@ -175,7 +175,7 @@
   color: white;
   z-index: 1;
   width: 100%;
-  padding: 0;
+  padding: 6px 0;
   border-bottom: 1px solid black;
 }
 
@@ -300,7 +300,7 @@
   .navbar ul li {
     border: none;
   }
-  .navbar .burger {
+  .navbar .burger-container {
     display: none;
   }
 }
@@ -406,7 +406,38 @@
   border-radius: 5px;
 }
 
-<<<<<<< HEAD
+.card-container .card h3 {
+  font-weight: bold;
+}
+
+.card-container .card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card-container .card span {
+  font-weight: bold;
+}
+
+.card-container .card .card-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: 0 auto;
+}
+
+.card-container .card .card-buttons button {
+  width: 120px;
+  margin: 10px;
+  color: #e9ecef;
+}
+
 .loginCard {
   width: 300px;
   margin-top: 80px;
@@ -453,105 +484,6 @@
 
 #password2-text {
   margin-bottom: 1.5rem;
-}
-
-.divContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-
-.divContainer .cardDiv {
-  width: 400px;
-  margin-bottom: 20px;
-  -webkit-box-shadow: 0 0 15px black;
-          box-shadow: 0 0 15px black;
-}
-
-.divContainer .cardDiv .card-body {
-  background-image: url("../image/card-background.jpg");
-  background-repeat: no-repeat;
-  height: 250px;
-  position: relative;
-}
-
-.divContainer .cardDiv .card-body .card-title {
-  text-align: center;
-}
-
-.divContainer .cardDiv .card-body p {
-  margin: 0;
-}
-
-.divContainer .cardDiv .card-body ul {
-  padding: 0;
-  list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-
-.divContainer .cardDiv .card-body ul button {
-  width: 120px;
-  height: 35px;
-}
-
-.divContainer .cardDiv .card-body .card-buttons {
-=======
-.card-container .card h3 {
-  font-weight: bold;
-}
-
-.card-container .card ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.card-container .card span {
-  font-weight: bold;
-}
-
-.card-container .card .card-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
->>>>>>> 857047cdee872be2879ce3ec11e8f0e7e10244ac
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  margin: 0 auto;
-}
-
-<<<<<<< HEAD
-.divContainer .cardDiv .card-body .card-buttons button {
-  margin: 10px;
-}
-
-.divContainer .cardDiv .card-body .cardLocation {
-  text-align: center;
-  width: 250px;
-  margin: 0 auto;
-=======
-.card-container .card .card-buttons button {
-  width: 120px;
-  margin: 10px;
-  color: #e9ecef;
->>>>>>> 857047cdee872be2879ce3ec11e8f0e7e10244ac
 }
 
 .left {
