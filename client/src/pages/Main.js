@@ -101,9 +101,8 @@ class Main extends Component {
         selectedCardName: currentCard[0].name,
         selecteCardRating: currentCard[0].rating,
         selectedCardLocation: currentCard[0].vicinity
-      },
-      () => console.log(this.state)
-    );
+      });
+      console.log(this.state);
   };
 
   saveFave = event => {
