@@ -3,6 +3,7 @@ import "../css/main.css";
 import Card from "../components/Card/card";
 import Nav from "../components/Nav/nav";
 import FillerImages from "../components/FillerImages/filler_card_images";
+import EventModal from "../components/EventModal/eventModal";
 import axios from "axios";
 
 class Main extends Component {
@@ -15,7 +16,10 @@ class Main extends Component {
       items: [],
       latLocation: 0,
       lngLocation: 0,
-      value: ""
+      value: "",
+      selectedCardName: "",
+      selectedCardLocation: "",
+      selecteCardRating: ""
     };
   }
 
@@ -88,6 +92,20 @@ class Main extends Component {
     }
   };
 
+  createEvent = event => {
+    const currentCard = this.state.items.filter(
+      item => item.id == event.target.id
+    );
+    this.setState(
+      {
+        selectedCardName: currentCard[0].name,
+        selecteCardRating: currentCard[0].rating,
+        selectedCardLocation: currentCard[0].vicinity
+      },
+      () => console.log(this.state)
+    );
+  };
+
   saveFave = event => {
     event.preventDefault();
     const currentCard = this.state.items.filter(
@@ -126,69 +144,11 @@ class Main extends Component {
 
     return (
       <div className="mainBody">
-        <div
-          class="modal fade"
-          id="saveModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-5 modalLeft">
-                    <h2>Create Event</h2>
-                    <br />
-                    <button class="btn signUpInBtn">Let's Go!</button>
-                  </div>
-                  <div class="col-md-2 modalCenter">
-                    <h2>-or-</h2>
-                  </div>
-                  <div class="col-md-5 modalRight">
-                    <h2>Choose Event</h2>
-                    <br />
-                    <div class="btn-group">
-                      <button
-                        type="button"
-                        class="btn btn-info saveDropdown dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Action
-                      </button>
-                      <div class="dropdown-menu saveDropdown">
-                        <a class="dropdown-item" href="#">
-                          Action
-                        </a>
-                        <a class="dropdown-item" href="#">
-                          Another action
-                        </a>
-                        <a class="dropdown-item" href="#">
-                          Something else here
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                          Separated link
-                        </a>
-                      </div>
-                    </div>
-
-                    <footer>
-                      <button class="btn submitBtn">Let's Go!</button>
-                    </footer>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <Nav
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}
           showUl={showUl}
+          storageClear = {this.storageClear}
         >
           <a className="btn" href="/main">
             Search
@@ -354,12 +314,14 @@ class Main extends Component {
                   location={item.vicinity}
                   id={item.id}
                   handleFave={event => this.saveFave(event)}
+                  createEvent={event => this.createEvent(event)}
                 />
               ))
             ) : (
               <FillerImages />
             )}
           </div>
+          <EventModal />
         </main>
       </div>
     );
