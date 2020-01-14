@@ -23,7 +23,7 @@ class Main extends Component {
       selectedCardLocation: "",
       selecteCardRating: "",
       eventName: "",
-      eventDate: 0 / 0 / 0
+      eventDate: ""
     };
   }
 
@@ -120,24 +120,37 @@ class Main extends Component {
     });
   };
 
+  addToEvent = event => {
+    event.preventDefault();
+    console.log("added to event!")
+  }
+
   grabEventInfo = event => {
-    // const date =  Moment(event.target.value).format("MMM Do YY");
-    // this.setState({
-    //   eventDate: date,
-    // })
-    console.log(this.state.eventName);
-    console.log(this.state.eventDate);
+    event.preventDefault();
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    const data = {
+      name: this.state.eventName,
+      date: this.state.eventDate,
+      UserId: user.id
+    }
+    console.log(data)
+    axios
+      .post("/api/events", data)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
   };
 
   theHaloThemeSongOnRepeat = event => {
-    event.preventDefault();
-
-    let user = JSON.parse(window.localStorage.getItem("user"));
+    event.preventDefault()
     let data = {
       name: this.state.selectedCardName,
       raiting: this.state.selecteCardRating,
       location: this.state.selectedCardLocation,
-      userId: user.id
     };
     axios
       .post("/api/events", data)
@@ -371,8 +384,9 @@ class Main extends Component {
             eventDate={this.state.eventDate}
             eventName={this.state.eventName}
             handleDateChange={event => this.handleDateEvent(event)}
-            grabEventInfo={event => this.grabEventInfo(event)}
             eventNameChange={event => this.handleEventNameChange(event)}
+            grabEventInfo={event => this.grabEventInfo(event)}
+            addToEvent={event => this.addToEvent(event)}
           />
         </main>
       </div>
