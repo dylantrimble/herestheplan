@@ -6,36 +6,11 @@ body,
   width: 100%;
 }
 
-.optionButton {
-  background-color: #19cc7f;
-  margin-top: 20px;
-  border-radius: 20px;
-  width: 200px;
-}
-
-.btn-danger {
-  width: 200px;
-  margin-top: 20px;
-  border-radius: 15px;
-}
-
-body {
-  font-family: 'Anton', sans-serif;
-}
-
-.modal-header {
-  text-shadow: 1px 1px #fff;
-}
-
-.submitBtn {
-  text-shadow: 1px 1px #fff;
-}
-.modal-header {
-  text-shadow: 1px 1px #fff;
+.hideModal {
+  display: none;
 }
 
 .navbar {
-  text-shadow: 1px 1px #fff;
   font-family: 'Anton', sans-serif;
   position: fixed;
   top: 0;
@@ -357,6 +332,10 @@ body {
   margin: 5px;
 }
 
+.modalDiv .modalNone {
+  display: none;
+}
+
 .buttonWrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -452,44 +431,16 @@ body {
   margin: 0 auto;
 }
 
+.loginCard {
+  width: 300px;
+}
+
 body {
   background-image: url("../image/homebackground.jpg");
   background-size: cover;
   background-position: center;
 }
 
-.left {
-  font-size: 50px;
-  background-color:white;
-  height: 500px;
-  background-color: #19cc7f;
-  text-shadow: 1px 1px #fff;
-}
-.right {
-  height: 300px;
-  background-color:#19cc7f;
-  display: inline-block;
-  font-size: 40px;
-  text-shadow: 1px 1px #fff;
-  text-align: center;
-
-}
-.options {
-  font-size: 20px;
-  background-color: #fff;
-  border-top-style: solid;
-  height: 250px;
-}
-.left2 {
-  font-size: 20px;
-  background-color: #fff;
-}
-.right2 {
-  background-color: white;
-  font-size: 20px;
-  border-left-style: solid;
-  height: 444px;
-}
 .searchDiv {
   margin-top: 100px;
   width: 100%;
@@ -526,51 +477,4 @@ body {
 .searchDiv .searchButton:hover {
   background: #19cc7f;
 }
-
-.getStartedBtn {
-  font-family: 'Bungee Inline', cursive;
-}
-
-.calendar {
-  height:60px;
-  width: 80px;
-}
-
-.left2, .right2 {
-  border-top-style: solid;
-  border-top-color: black;
-}
-
-.container {
-  position: fixed;
-  top: 125px;
-  left: 260px;
-}
-
-.dropdown-toggle {
-  width: 75%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-}
-
-.dropdown-menu.show {
-  margin-top: 133px;
-  width: 75%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-  text-align: center;
-}
-
-
-/* .dropdown-menu {
-  width: 75%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-} */
-
-
+/*# sourceMappingURL=main.css.map */
