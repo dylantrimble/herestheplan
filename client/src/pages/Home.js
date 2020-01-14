@@ -13,7 +13,7 @@ class Home extends Component {
     loggedIn: false,
     inputBlank: false,
     incorrectLogin: false,
-    showLoginInComponent: true,
+    showLoginComponent: true,
     loginUser: "",
     loginPassword: "",
     fullName: "",
@@ -49,18 +49,25 @@ class Home extends Component {
 
   displaySignUpComponent = event => {
     event.preventDefault();
-    this.setState({ showLoginInComponent: false });
+    this.setState({ showLoginComponent: false });
+    console.log(this.state);
+  };
+
+  displayLoginComponent = event => {
+    event.preventDefault();
+    this.setState({ showLoginComponent: true });
+    console.log(this.state);
   };
 
   handleLogin(event) {
     event.preventDefault();
     if (this.state.loginUser === "" || this.state.loginPassword === "") {
-      console.log("please fill out all inputs");
       this.setState({ inputBlank: true });
     } else {
       axios
         .get(`/api/user/${this.state.loginUser}/${this.state.loginPassword} `)
         .then(response => {
+          this.setState({ incorrectLogin: false, inputBlank: false });
           const user = {
             id: response.data.id,
             fullName: response.data.fullName,
@@ -70,7 +77,7 @@ class Home extends Component {
         })
         .catch(
           function(error) {
-            this.setState({ incorrectLogin: true });
+            this.setState({ incorrectLogin: true, inputBlank: false });
           }.bind(this)
         );
     }
@@ -84,7 +91,7 @@ class Home extends Component {
       password: this.state.password
     };
     if (data.fullName === "" || data.username === "" || data.password === "") {
-      alert("Fill out all inputs");
+      this.setState({ inputBlank: true });
     } else {
       const options = {
         method: "POST",
@@ -149,23 +156,17 @@ class Home extends Component {
           <a
             className="btn"
             href={this.state.loggedIn ? "/profile" : ""}
-            onClick={event => this.displaySignUpComponent(event)}
+            onClick={
+              this.state.showLoginComponent
+                ? event => this.displaySignUpComponent(event)
+                : event => this.displayLoginComponent(event)
+            }
           >
-            {this.state.loggedIn ? "Profile" : "Sign Up"}
+            {this.state.showLoginComponent ? "Sign Up" : "Sign In"}
           </a>
         </Nav>
-        {/* <Jumbotron>
-          <button
-            type="button"
-            className="btn getStartedBtn"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          >
-            GET STARTED
-          </button>
-        </Jumbotron> */}
         <JumbotronHome>
-          {this.state.showLoginInComponent ? (
+          {this.state.showLoginComponent ? (
             <Login
               state={this.state}
               handleChangeLoginUser={this.handleChangeLoginUser}
@@ -188,4 +189,5 @@ class Home extends Component {
     );
   }
 }
+
 export default Home;

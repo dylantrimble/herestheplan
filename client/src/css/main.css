@@ -140,33 +140,6 @@
   }
 }
 
-.jumbotron {
-  position: relative;
-  padding: 40px 0 0 0;
-  margin: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100%;
-}
-
-.jumbotron .getStartedBtn {
-  background: #333;
-  -webkit-box-shadow: 0 0 10px black;
-          box-shadow: 0 0 10px black;
-  font-size: 24px;
-  position: relative;
-  padding: 15px 20px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.jumbotron .getStartedBtn:hover {
-  background: #444;
-}
-
 .navbar {
   font-family: 'Bitter', serif;
   position: fixed;
@@ -305,32 +278,6 @@
   }
 }
 
-.modal-dialogue {
-  margin-top: 300px;
-}
-
-.modalDiv {
-  width: 350px;
-  text-align: center;
-  border-color: black;
-  margin: auto;
-  -webkit-box-shadow: 0px 0px 10px black;
-          box-shadow: 0px 0px 10px black;
-  border-radius: 8px;
-}
-
-.modalDiv .modal-header {
-  background-color: #19cc7f;
-}
-
-.modalDiv label {
-  margin: 5px;
-}
-
-.modalDiv .modalNone {
-  display: none;
-}
-
 .buttonWrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -340,15 +287,12 @@
           justify-content: space-evenly;
 }
 
-.signUpInBtn {
-  background: #ff4d4d;
-}
-
 .submitBtn {
   background: #333;
 }
 
 .submitBtn:hover {
+  color: #e9ecef;
   background: #444;
   -webkit-box-shadow: 0 0 10px grey;
           box-shadow: 0 0 10px grey;
@@ -443,7 +387,17 @@
   margin-top: 80px;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-family: 'Bitter', serif;
+  font-family: "Bitter", serif;
+}
+
+.loginCard .incorrect-login {
+  color: red;
+  margin: 0;
+}
+
+.empty-input-error {
+  color: red;
+  margin: 0;
 }
 
 .fa-rocket {
@@ -463,8 +417,9 @@
   margin-bottom: 1.5rem;
 }
 
-.separator::before, .separator::after {
-  content: '';
+.separator::before,
+.separator::after {
+  content: "";
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -483,11 +438,15 @@
   margin-bottom: 0rem;
 }
 
-#password {
+.form-group .input-error {
+  border: solid red 1px;
+}
+
+.form-group #password {
   margin-bottom: 1.5rem;
 }
 
-#password2-text {
+.form-group #password2-text {
   margin-bottom: 1.5rem;
 }
 
@@ -517,6 +476,57 @@
 
 #password2-text {
   margin-bottom: 1.5rem;
+}
+
+.createEventBtn {
+  background: #333;
+  position: absolute;
+  right: 10%;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.modal-body {
+  padding-top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.modal-body .center-content {
+  margin-top: 70px;
+}
+
+.modal-body input {
+  width: 100%;
+}
+
+.modal-body button {
+  display: block;
+  margin: 15px auto 0;
+  color: #e9ecef;
+}
+
+.modal-body .select-event-body {
+  position: relative;
+}
+
+.modal-body .select-event-body .chooseEventBtn {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  -webkit-transform: translate(50%);
+          transform: translate(50%);
+}
+
+.modal-body .dropdown .dropdown-item {
+  color: black;
 }
 
 .left {
@@ -573,6 +583,11 @@ body {
 
 .dropdown-toggle:hover {
   background-color: #444;
+}
+
+.searchDropdown {
+  height: 350px;
+  overflow: auto;
 }
 
 .main-page-container {

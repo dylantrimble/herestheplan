@@ -14,9 +14,6 @@ function Modal(props) {
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content modalDiv">
             <div className="modal-header">
-              <h5 className="modal-title" id="EventModalLabel">
-                Create Event
-              </h5>
               <button
                 type="button"
                 className="close"
@@ -27,23 +24,71 @@ function Modal(props) {
               </button>
             </div>
             <div className="modal-body">
-              <form>
-                <label>Event Name</label>
-                <br />
-                <input type="text" 
-                value={props.eventName}
-                onChange={event => props.eventNameChange(event)}
-                />
-                <br />
-                <label>Date</label>
-                <br />
-                <input type="date" 
-                value={props.eventDate}
-                onChange={event => props.handleDateChange(event)}
-                />
-                <hr />
-              </form>
-              <footer className="buttonWrap"><button className="btn submitBtn" onClick={event => props.grabEventInfo(event)}>Submit</button></footer>
+              <div className="create-event-form">
+                <h3 className="modal-title" id="EventModalLabel">
+                  Create Event
+                </h3>
+                <form>
+                  <label htmlFor="eventName">Event Name</label>
+                  <br />
+                  <input
+                    type="text"
+                    id="eventName"
+                    value={props.eventName}
+                    onChange={event => props.eventNameChange(event)}
+                  />
+                  <br />
+                  <label htmlFor="eventDate">Date</label>
+                  <br />
+                  <input
+                    type="date"
+                    id="eventDate"
+                    value={props.eventDate}
+                    onChange={event => props.handleDateChange(event)}
+                  />
+                </form>
+                <button
+                  className="btn submitBtn"
+                  onClick={event => props.grabEventInfo(event)}
+                >
+                  Submit
+                </button>
+              </div>
+              <span className="center-content">OR</span>
+              <div className="select-event-body">
+                <h3 className="modal-title" id="EventModalLabel">
+                  Choose Event
+                </h3>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenu2"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Select Event
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">
+                      Action
+                    </button>
+                    <button class="dropdown-item" type="button">
+                      Another action
+                    </button>
+                    <button class="dropdown-item" type="button">
+                      Something else here
+                    </button>
+                  </div>
+                </div>
+                <button
+                  className="btn submitBtn chooseEventBtn"
+                  onClick={event => props.grabEventInfo(event)}
+                >
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -53,7 +98,8 @@ function Modal(props) {
 }
 export default Modal;
 
-{/* <div
+{
+  /* <div
 class="modal fade"
 id="saveModal"
 tabindex="-1"
@@ -111,4 +157,5 @@ aria-hidden="true"
     </div>
   </div>
 </div>
-</div> */}
+</div> */
+}

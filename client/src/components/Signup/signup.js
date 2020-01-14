@@ -10,38 +10,53 @@ function SignUp(props) {
           </h2>
           <p className="lead">Get the plan started!</p>
           <form>
+            {props.state.inputBlank && (
+              <p className="empty-input-error">Please fill out all inputs</p>
+            )}
             <div className="form-group">
-              <label for="Fullname-text"></label>
+              <label htmlFor="Fullname-text"></label>
               <input
                 type="text"
                 name="fullname"
-                className="form-control"
                 id="fullname-text"
                 placeholder="Full Name"
+                className={
+                  props.state.inputBlank || props.state.incorrectLogin
+                    ? "form-control input-error"
+                    : "form-control"
+                }
                 value={props.state.fullName}
                 onChange={event => props.handleChangeFullName(event)}
               ></input>
             </div>
             <div className="form-group">
-              <label for="Username-text"></label>
+              <label htmlFor="Username-text"></label>
               <input
                 type="text"
                 name="username"
-                className="form-control"
                 id="username-text"
                 placeholder="Username"
+                className={
+                  props.state.inputBlank || props.state.incorrectLogin
+                    ? "form-control input-error"
+                    : "form-control"
+                }
                 value={props.state.username}
                 onChange={event => props.handleChangeUsername(event)}
               ></input>
             </div>
             <div className="form-group">
-              <label for="Password-Text"></label>
+              <label htmlFor="Password-Text"></label>
               <input
                 type="password"
                 name="password"
-                className="form-control"
                 id="password-text"
                 placeholder="New Password"
+                className={
+                  props.state.inputBlank || props.state.incorrectLogin
+                    ? "form-control input-error"
+                    : "form-control"
+                }
                 value={props.state.password}
                 onChange={event => props.handleChangePassword(event)}
               ></input>
