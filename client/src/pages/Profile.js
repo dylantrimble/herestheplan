@@ -43,6 +43,7 @@ class Profile extends Component {
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}
           showUl={showUl}
+          storageClear = {this.storageClear}
         >
           <a className="btn" href="/main">
             Search
