@@ -6,7 +6,7 @@ function Login() {
         <div className="col-md-4">
             <div className="card text-center bg-light mb-3 loginCard">
                 <div className="card-body">
-                    <h5 className="card-title">Log into H.T.P.</h5>
+                    <h5 className="card-title">Launch into HTP<i className="fas fa-rocket"></i></h5>
                     <form>
                         <div className="form-group">
                             <label for="username"></label>
