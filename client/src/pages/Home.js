@@ -6,6 +6,8 @@ import SignInModal from "../components/Signinmodal/signinmodal";
 import "../css/main.css";
 import axios from "axios";
 import Nav from "../components/Nav/nav";
+import JumbotronHome from "../components/JumbotronHome/jumbotronHome";
+import Login from "../components/Login/login";
 
 class Home extends Component {
   state = {
@@ -150,7 +152,7 @@ class Home extends Component {
             {this.state.loggedIn ? "Profile" : "Sign In"}
           </a>
         </Nav>
-        <Jumbotron>
+        {/* <Jumbotron>
           <button
             type="button"
             className="btn getStartedBtn"
@@ -159,7 +161,11 @@ class Home extends Component {
           >
             GET STARTED
           </button>
-        </Jumbotron>
+        </Jumbotron> */}
+        <JumbotronHome>
+          <Login>
+          </Login>
+        </JumbotronHome>
         {this.state.modalHide ? (
           <div></div>
         ) : (

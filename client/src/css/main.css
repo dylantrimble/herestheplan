@@ -144,7 +144,6 @@
   position: relative;
   padding: 40px 0 0 0;
   margin: 0;
-  background-image: url("../image/homebackground.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -407,6 +406,110 @@
   border-radius: 5px;
 }
 
+<<<<<<< HEAD
+.loginCard {
+  width: 300px;
+  margin-top: 80px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.separator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.separator::before, .separator::after {
+  content: '';
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-bottom: 1px solid #ced4da;
+}
+
+.separator::before {
+  margin-right: 1rem;
+}
+
+.separator::after {
+  margin-left: 1rem;
+}
+
+.form-group {
+  margin-bottom: 0rem;
+}
+
+#password {
+  margin-bottom: 1.5rem;
+}
+
+#password2-text {
+  margin-bottom: 1.5rem;
+}
+
+.divContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.divContainer .cardDiv {
+  width: 400px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 0 15px black;
+          box-shadow: 0 0 15px black;
+}
+
+.divContainer .cardDiv .card-body {
+  background-image: url("../image/card-background.jpg");
+  background-repeat: no-repeat;
+  height: 250px;
+  position: relative;
+}
+
+.divContainer .cardDiv .card-body .card-title {
+  text-align: center;
+}
+
+.divContainer .cardDiv .card-body p {
+  margin: 0;
+}
+
+.divContainer .cardDiv .card-body ul {
+  padding: 0;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.divContainer .cardDiv .card-body ul button {
+  width: 120px;
+  height: 35px;
+}
+
+.divContainer .cardDiv .card-body .card-buttons {
+=======
 .card-container .card h3 {
   font-weight: bold;
 }
@@ -425,6 +528,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+>>>>>>> 857047cdee872be2879ce3ec11e8f0e7e10244ac
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -433,10 +537,21 @@
   margin: 0 auto;
 }
 
+<<<<<<< HEAD
+.divContainer .cardDiv .card-body .card-buttons button {
+  margin: 10px;
+}
+
+.divContainer .cardDiv .card-body .cardLocation {
+  text-align: center;
+  width: 250px;
+  margin: 0 auto;
+=======
 .card-container .card .card-buttons button {
   width: 120px;
   margin: 10px;
   color: #e9ecef;
+>>>>>>> 857047cdee872be2879ce3ec11e8f0e7e10244ac
 }
 
 .left {
