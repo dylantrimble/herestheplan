@@ -1,11 +1,3 @@
-html,
-body,
-#root,
-.wrapper {
-  height: 100%;
-  width: 100%;
-}
-
 .hideModal {
   display: none;
 }
@@ -396,6 +388,10 @@ body,
   margin: 20px;
 }
 
+.card-container .card-height {
+  height: 280px;
+}
+
 .card-container .card {
   width: 400px;
   margin-bottom: 20px;
@@ -410,6 +406,7 @@ body,
   border-radius: 5px;
 }
 
+<<<<<<< HEAD
 .loginCard {
   width: 300px;
   margin-top: 80px;
@@ -512,6 +509,26 @@ body,
 }
 
 .divContainer .cardDiv .card-body .card-buttons {
+=======
+.card-container .card h3 {
+  font-weight: bold;
+}
+
+.card-container .card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card-container .card span {
+  font-weight: bold;
+}
+
+.card-container .card .card-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+>>>>>>> 857047cdee872be2879ce3ec11e8f0e7e10244ac
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -520,6 +537,7 @@ body,
   margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .divContainer .cardDiv .card-body .card-buttons button {
   margin: 10px;
 }
@@ -528,6 +546,12 @@ body,
   text-align: center;
   width: 250px;
   margin: 0 auto;
+=======
+.card-container .card .card-buttons button {
+  width: 120px;
+  margin: 10px;
+  color: #e9ecef;
+>>>>>>> 857047cdee872be2879ce3ec11e8f0e7e10244ac
 }
 
 .left {

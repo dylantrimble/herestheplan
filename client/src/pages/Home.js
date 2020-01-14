@@ -41,8 +41,8 @@ class Home extends Component {
     this.setState({ password: event.target.value });
   }
 
-  useLocalStorage = (localItem) => {
-    localStorage.setItem('user', localItem);
+  useLocalStorage = localItem => {
+    localStorage.setItem("user", localItem);
     this.setState({ loggedIn: true });
   };
 
@@ -56,9 +56,11 @@ class Home extends Component {
           id: response.data.id,
           fullName: response.data.fullName,
           userName: response.data.username
-        }
-        console.log(user)
-        response.data ? this.useLocalStorage(JSON.stringify(user)) : this.setState({ loggedIn: false });
+        };
+        console.log(user);
+        response.data
+          ? this.useLocalStorage(JSON.stringify(user))
+          : this.setState({ loggedIn: false });
       })
       .catch(function(error) {
         console.log(error);
@@ -82,8 +84,20 @@ class Home extends Component {
         },
         body: JSON.stringify(data)
       };
-      fetch("/api/newUser", options);
-      this.setState({ loggedIn: true });
+      fetch("/api/newUser", options).then(response => {
+        axios
+          .get(`/api/user/${data.username}/${data.password} `)
+          .then(response => {
+            const user = {
+              id: response.data.id,
+              fullName: response.data.fullName,
+              userName: response.data.username
+            };
+            response.data
+              ? this.useLocalStorage(JSON.stringify(user))
+              : this.setState({ loggedIn: false });
+          });
+      });
     }
   }
 
@@ -116,6 +130,7 @@ class Home extends Component {
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}
           showUl={showUl}
+          storageClear={this.storageClear}
         >
           <a className="btn" href="/">
             Home
