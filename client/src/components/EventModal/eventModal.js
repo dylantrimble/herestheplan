@@ -23,7 +23,7 @@ function Modal(props) {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body" value={props.buttonFalse}>
               <div className="create-event-form">
                 <h3 className="modal-title" id="EventModalLabel">
                   Create Event
@@ -84,12 +84,16 @@ function Modal(props) {
                 </div>
                 <button
                   className="btn submitBtn chooseEventBtn"
-                  onClick={event => props.grabEventInfo(event)}
+                  onClick={event => props.addToEvent(event)}
                 >
                   Submit
                 </button>
               </div>
             </div>
+
+
+
+
           </div>
         </div>
       </div>
