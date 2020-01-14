@@ -8,6 +8,7 @@ import axios from "axios";
 import Nav from "../components/Nav/nav";
 import JumbotronHome from "../components/JumbotronHome/jumbotronHome";
 import Login from "../components/Login/login";
+import SignUp from "../components/Signup/signup";
 
 class Home extends Component {
   state = {
@@ -62,7 +63,7 @@ class Home extends Component {
           ? this.useLocalStorage(JSON.stringify(user))
           : this.setState({ loggedIn: false });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -165,28 +166,30 @@ class Home extends Component {
         <JumbotronHome>
           <Login>
           </Login>
+          <SignUp>
+          </SignUp>
         </JumbotronHome>
         {this.state.modalHide ? (
           <div></div>
         ) : (
-          <SignUpModal
-            state={this.state}
-            handleChangeFullName={this.handleChangeFullName}
-            handleChangeUsername={this.handleChangeUsername}
-            handleChangePassword={this.handleChangePassword}
-            handleNewUser={this.handleNewUser}
-          ></SignUpModal>
-        )}
+            <SignUpModal
+              state={this.state}
+              handleChangeFullName={this.handleChangeFullName}
+              handleChangeUsername={this.handleChangeUsername}
+              handleChangePassword={this.handleChangePassword}
+              handleNewUser={this.handleNewUser}
+            ></SignUpModal>
+          )}
         {this.state.modalHide ? (
           <div></div>
         ) : (
-          <SignInModal
-            state={this.state}
-            handleChangeLoginUser={this.handleChangeLoginUser}
-            handleChangeLoginPassword={this.handleChangeLoginPassword}
-            handleLogin={this.handleLogin}
-          ></SignInModal>
-        )}
+            <SignInModal
+              state={this.state}
+              handleChangeLoginUser={this.handleChangeLoginUser}
+              handleChangeLoginPassword={this.handleChangeLoginPassword}
+              handleLogin={this.handleLogin}
+            ></SignInModal>
+          )}
       </div>
     );
   }
