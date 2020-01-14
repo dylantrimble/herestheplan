@@ -8,6 +8,7 @@ import axios from "axios";
 import Nav from "../components/Nav/nav";
 import JumbotronHome from "../components/JumbotronHome/jumbotronHome";
 import Login from "../components/Login/login";
+import SignUp from "../components/Signup/signup";
 
 class Home extends Component {
   state = {
@@ -49,15 +50,15 @@ class Home extends Component {
   };
 
   displaySignUpComponent = event => {
-    event.preventDefault()
+    event.preventDefault();
     console.log("Hello");
-  }
+  };
 
   handleLogin(event) {
     event.preventDefault();
     if (this.state.loginUser === "" || this.state.loginPassword === "") {
       console.log("please fill out all inputs");
-      this.setState({inputBlank: true});
+      this.setState({ inputBlank: true });
     } else {
       axios
         .get(`/api/user/${this.state.loginUser}/${this.state.loginPassword} `)
@@ -69,9 +70,11 @@ class Home extends Component {
           };
           this.useLocalStorage(JSON.stringify(user));
         })
-        .catch(function(error) {
-          this.setState({incorrectLogin: true})
-        }.bind(this));
+        .catch(
+          function(error) {
+            this.setState({ incorrectLogin: true });
+          }.bind(this)
+        );
     }
   }
 
@@ -142,10 +145,7 @@ class Home extends Component {
           <a className="btn" href="/">
             Home
           </a>
-          <a
-            className="btn"
-            href={this.state.loggedIn ? "/main" : "/"}
-          >
+          <a className="btn" href={this.state.loggedIn ? "/main" : "/"}>
             Search
           </a>
           <a
@@ -172,8 +172,9 @@ class Home extends Component {
             handleChangeLoginUser={this.handleChangeLoginUser}
             handleChangeLoginPassword={this.handleChangeLoginPassword}
             handleLogin={this.handleLogin}
-            displaySignUpComponent = {this.displaySignUpComponent}
+            displaySignUpComponent={this.displaySignUpComponent}
           />
+          <SignUp />
         </JumbotronHome>
         {this.state.modalHide ? (
           <div></div>
