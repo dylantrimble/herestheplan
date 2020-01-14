@@ -19,7 +19,7 @@ module.exports = function(app) {
     }).then(function(user) {
       console.log(user);
       if (user == null) {
-        console.log("fail");
+        res.json(user)
       } else {
         bcrypt.compare(req.params.password, user.password, function(
           err,

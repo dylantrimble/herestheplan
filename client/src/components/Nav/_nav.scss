@@ -1,12 +1,12 @@
 .navbar {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Bitter', serif;
   position: fixed;
   top: 0;
   background: $primary-color;
   color: white;
   z-index: 1;
   width: 100%;
-  padding: 0;
+  padding: 6px 0;
   border-bottom: 1px solid black;
   .logo {
     padding-left: 10px;
@@ -106,7 +106,7 @@
         border: none;
       }
     }
-    .burger {
+    .burger-container {
       display: none;
     }
   }
