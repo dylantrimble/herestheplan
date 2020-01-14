@@ -1,6 +1,6 @@
 import React from "react";
 
-function Modal({ children }) {
+function Modal(props) {
   return (
     <div>
       <div
@@ -30,10 +30,20 @@ function Modal({ children }) {
               <form>
                 <label>Event Name</label>
                 <br />
-                <input type="text" />
+                <input type="text" 
+                value={props.eventName}
+                onChange={event => props.eventNameChange(event)}
+                />
+                <br />
+                <label>Date</label>
+                <br />
+                <input type="date" 
+                value={props.eventDate}
+                onChange={event => props.handleDateChange(event)}
+                />
                 <hr />
               </form>
-              <footer className="buttonWrap"><button className="btn submitBtn">Submit</button></footer>
+              <footer className="buttonWrap"><button className="btn submitBtn" onClick={event => props.grabEventInfo(event)}>Submit</button></footer>
             </div>
           </div>
         </div>
