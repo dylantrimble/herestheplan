@@ -184,7 +184,6 @@ class Home extends Component {
             />
           )}
         </JumbotronHome>
-        )}
       </div>
     );
   }
