@@ -287,15 +287,12 @@
           justify-content: space-evenly;
 }
 
-.signUpInBtn {
-  background: #ff4d4d;
-}
-
 .submitBtn {
   background: #333;
 }
 
 .submitBtn:hover {
+  color: #e9ecef;
   background: #444;
   -webkit-box-shadow: 0 0 10px grey;
           box-shadow: 0 0 10px grey;
@@ -481,6 +478,57 @@
   margin-bottom: 1.5rem;
 }
 
+.createEventBtn {
+  background: #333;
+  position: absolute;
+  right: 10%;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.modal-body {
+  padding-top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.modal-body .center-content {
+  margin-top: 70px;
+}
+
+.modal-body input {
+  width: 100%;
+}
+
+.modal-body button {
+  display: block;
+  margin: 15px auto 0;
+  color: #e9ecef;
+}
+
+.modal-body .select-event-body {
+  position: relative;
+}
+
+.modal-body .select-event-body .chooseEventBtn {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  -webkit-transform: translate(50%);
+          transform: translate(50%);
+}
+
+.modal-body .dropdown .dropdown-item {
+  color: black;
+}
+
 .left {
   font-size: 50px;
   background-color: white;
@@ -535,6 +583,11 @@ body {
 
 .dropdown-toggle:hover {
   background-color: #444;
+}
+
+.searchDropdown {
+  height: 350px;
+  overflow: auto;
 }
 
 .main-page-container {
