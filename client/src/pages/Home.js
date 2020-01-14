@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import Jumbotron from "../components/Jumbotron/jumbotron";
-import SignUpModal from "../components/Signupmodal/signupmodal";
-import SignInModal from "../components/Signinmodal/signinmodal";
 import "../css/main.css";
 import axios from "axios";
 import Nav from "../components/Nav/nav";
@@ -16,6 +13,7 @@ class Home extends Component {
     loggedIn: false,
     inputBlank: false,
     incorrectLogin: false,
+    showLoginInComponent: true,
     loginUser: "",
     loginPassword: "",
     fullName: "",
@@ -51,7 +49,7 @@ class Home extends Component {
 
   displaySignUpComponent = event => {
     event.preventDefault();
-    console.log("Hello");
+    this.setState({ showLoginInComponent: false });
   };
 
   handleLogin(event) {
@@ -167,35 +165,24 @@ class Home extends Component {
           </button>
         </Jumbotron> */}
         <JumbotronHome>
-          <Login
-            state={this.state}
-            handleChangeLoginUser={this.handleChangeLoginUser}
-            handleChangeLoginPassword={this.handleChangeLoginPassword}
-            handleLogin={this.handleLogin}
-            displaySignUpComponent={this.displaySignUpComponent}
-          />
-          <SignUp />
+          {this.state.showLoginInComponent ? (
+            <Login
+              state={this.state}
+              handleChangeLoginUser={this.handleChangeLoginUser}
+              handleChangeLoginPassword={this.handleChangeLoginPassword}
+              handleLogin={this.handleLogin}
+              displaySignUpComponent={this.displaySignUpComponent}
+            />
+          ) : (
+            <SignUp
+              state={this.state}
+              handleChangeFullName={this.handleChangeFullName}
+              handleChangeUsername={this.handleChangeUsername}
+              handleChangePassword={this.handleChangePassword}
+              handleNewUser={this.handleNewUser}
+            />
+          )}
         </JumbotronHome>
-        {this.state.modalHide ? (
-          <div></div>
-        ) : (
-          <SignUpModal
-            state={this.state}
-            handleChangeFullName={this.handleChangeFullName}
-            handleChangeUsername={this.handleChangeUsername}
-            handleChangePassword={this.handleChangePassword}
-            handleNewUser={this.handleNewUser}
-          ></SignUpModal>
-        )}
-        {this.state.modalHide ? (
-          <div></div>
-        ) : (
-          <SignInModal
-            state={this.state}
-            handleChangeLoginUser={this.handleChangeLoginUser}
-            handleChangeLoginPassword={this.handleChangeLoginPassword}
-            handleLogin={this.handleLogin}
-          ></SignInModal>
         )}
       </div>
     );
