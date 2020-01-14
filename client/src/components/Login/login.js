@@ -5,10 +5,12 @@ function Login(props) {
     <div className="col-md-4">
       <div className="card text-center bg-light mb-3 loginCard">
         <div className="card-body">
-          <h5 className="card-title">Log into H.T.P.</h5>
+          <h5 className="card-title">
+            Launch into HTP<i className="fas fa-rocket"></i>
+          </h5>
           <form>
             <div className="form-group">
-              <label htmlFor="username"></label>
+              <label for="username"></label>
               <input
                 type="text"
                 className="form-control"
@@ -19,7 +21,7 @@ function Login(props) {
               ></input>
             </div>
             <div className="form-group">
-              <label htmlFor="password"></label>
+              <label for="password"></label>
               <input
                 type="password"
                 className="form-control"
@@ -40,6 +42,7 @@ function Login(props) {
             <div className="separator">OR</div>
             <button
               className="btn btn-success btn-block"
+              onClick={props.displaySignUpComponent}
             >
               Create New User
             </button>

@@ -13,6 +13,8 @@ class Home extends Component {
   state = {
     collapsed: false,
     loggedIn: false,
+    inputBlank: false,
+    incorrectLogin: false,
     loginUser: "",
     loginPassword: "",
     fullName: "",
@@ -46,25 +48,31 @@ class Home extends Component {
     this.setState({ loggedIn: true });
   };
 
+  displaySignUpComponent = event => {
+    event.preventDefault()
+    console.log("Hello");
+  }
+
   handleLogin(event) {
     event.preventDefault();
-    axios
-      .get(`/api/user/${this.state.loginUser}/${this.state.loginPassword} `)
-      .then(response => {
-        console.log(response.data);
-        const user = {
-          id: response.data.id,
-          fullName: response.data.fullName,
-          userName: response.data.username
-        };
-        console.log(user);
-        response.data
-          ? this.useLocalStorage(JSON.stringify(user))
-          : this.setState({ loggedIn: false });
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    if (this.state.loginUser === "" || this.state.loginPassword === "") {
+      console.log("please fill out all inputs");
+      this.setState({inputBlank: true});
+    } else {
+      axios
+        .get(`/api/user/${this.state.loginUser}/${this.state.loginPassword} `)
+        .then(response => {
+          const user = {
+            id: response.data.id,
+            fullName: response.data.fullName,
+            userName: response.data.username
+          };
+          this.useLocalStorage(JSON.stringify(user));
+        })
+        .catch(function(error) {
+          this.setState({incorrectLogin: true})
+        }.bind(this));
+    }
   }
 
   handleNewUser(event) {
@@ -122,7 +130,6 @@ class Home extends Component {
 
     this.handleNewUser = this.handleNewUser.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
-    console.log("someting" + JSON.stringify(this.props));
 
     return (
       <div className="wrapper">
@@ -137,19 +144,16 @@ class Home extends Component {
           </a>
           <a
             className="btn"
-            data-toggle={this.state.loggedIn ? "" : "modal"}
-            data-target={this.state.loggedIn ? "" : "#signInModal"}
             href={this.state.loggedIn ? "/main" : "/"}
           >
             Search
           </a>
           <a
             className="btn"
-            data-toggle={this.state.loggedIn ? "" : "modal"}
-            data-target={this.state.loggedIn ? "" : "#signInModal"}
             href={this.state.loggedIn ? "/profile" : ""}
+            onClick={event => this.displaySignUpComponent(event)}
           >
-            {this.state.loggedIn ? "Profile" : "Sign In"}
+            {this.state.loggedIn ? "Profile" : "Sign Up"}
           </a>
         </Nav>
         {/* <Jumbotron>
@@ -168,6 +172,7 @@ class Home extends Component {
             handleChangeLoginUser={this.handleChangeLoginUser}
             handleChangeLoginPassword={this.handleChangeLoginPassword}
             handleLogin={this.handleLogin}
+            displaySignUpComponent = {this.displaySignUpComponent}
           />
         </JumbotronHome>
         {this.state.modalHide ? (
