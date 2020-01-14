@@ -21,10 +21,8 @@ $third-color: #ff4d4d;
 @import "../components/Signupmodal/modal";
 @import "../components//Button/button";
 @import "../components/Card/card";
-<<<<<<< HEAD
 @import "../components/Login/login";
-=======
-@import "../components/Favorites/_favorites.sass";
+@import "../components/Favorites/favorites";
 
 .left {
   font-size: 50px;
@@ -64,7 +62,6 @@ $third-color: #ff4d4d;
   border-top-style: solid;
   border-top-color: black;
 }
->>>>>>> 01f54a8909dab20d6261503c2c0418bdc862ed12
 
 body {
   background-color: $secondary-color;
