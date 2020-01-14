@@ -55,12 +55,12 @@ class Home extends Component {
   handleLogin(event) {
     event.preventDefault();
     if (this.state.loginUser === "" || this.state.loginPassword === "") {
-      console.log("please fill out all inputs");
       this.setState({ inputBlank: true });
     } else {
       axios
         .get(`/api/user/${this.state.loginUser}/${this.state.loginPassword} `)
         .then(response => {
+          this.setState({ incorrectLogin: false, inputBlank: false });
           const user = {
             id: response.data.id,
             fullName: response.data.fullName,
@@ -70,7 +70,7 @@ class Home extends Component {
         })
         .catch(
           function(error) {
-            this.setState({ incorrectLogin: true });
+            this.setState({ incorrectLogin: true, inputBlank: false });
           }.bind(this)
         );
     }
@@ -84,7 +84,7 @@ class Home extends Component {
       password: this.state.password
     };
     if (data.fullName === "" || data.username === "" || data.password === "") {
-      alert("Fill out all inputs");
+      this.setState({ inputBlank: true })
     } else {
       const options = {
         method: "POST",

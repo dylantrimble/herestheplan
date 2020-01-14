@@ -9,11 +9,17 @@ function Login(props) {
             Launch into HTP<i className="fas fa-rocket"></i>
           </h5>
           <form>
+            {props.state.inputBlank && <p className="empty-input-error">Please fill out all inputs</p>}
+            {props.state.incorrectLogin && <p className="incorrect-login">Username or password are incorrect</p>}
             <div className="form-group">
-              <label for="username"></label>
+              <label htmlFor="username"></label>
               <input
                 type="text"
-                className="form-control"
+                className={
+                  props.state.inputBlank || props.state.incorrectLogin
+                    ? "form-control input-error"
+                    : "form-control"
+                }
                 id="username"
                 placeholder="Username"
                 value={props.state.loginUser}
@@ -21,10 +27,15 @@ function Login(props) {
               ></input>
             </div>
             <div className="form-group">
-              <label for="password"></label>
+              <label htmlFor="password"></label>
               <input
                 type="password"
-                className="form-control"
+                // className="form-control"
+                className={
+                  props.state.inputBlank || props.state.incorrectLogin
+                    ? "form-control input-error"
+                    : "form-control"
+                }
                 id="password"
                 placeholder="Password"
                 value={props.state.loginPassword}
