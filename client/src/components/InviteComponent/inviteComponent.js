@@ -1,10 +1,10 @@
 import React from "react";
 
-function InviteComponent() {
+function InviteComponent(props) {
   return (
     <div className="col-md-3 inviteComponent">
       <h4 className="componentHeader">Invites</h4>
-      <button className="closeInvite">X</button>
+      <button className="closeInvite" onClick={props.closeComponent}>X</button>
       <div>
         <ul>
           <li>

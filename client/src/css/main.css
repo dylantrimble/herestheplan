@@ -593,14 +593,14 @@
   padding-bottom: 10px;
 }
 
-.optionsMenu .optionButton {
+.optionButton {
   background-color: white;
   -webkit-box-shadow: 0 0 5px #007bff;
           box-shadow: 0 0 5px #007bff;
   margin-bottom: 10px;
 }
 
-.optionsMenu .optionButton:hover {
+.optionButton:hover {
   color: white;
   background-color: #007bff;
 }
@@ -617,9 +617,10 @@
 
 @media only screen and (max-width: 850px) {
   .mobalOptionsMenu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: inline;
+  }
+  .mobalOptionsMenu button {
+    margin: 0 10px;
   }
   .optionsMenu {
     display: none;
@@ -738,6 +739,7 @@
   -webkit-box-shadow: 0 0 15px #444;
           box-shadow: 0 0 15px #444;
   padding-bottom: 10px;
+  width: 400px;
 }
 
 .eventComponent .closeFavorite {
@@ -750,18 +752,13 @@
 }
 
 .eventComponent .savedEventsWrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   overflow: auto;
   height: 400px;
 }
 
 .eventComponent .eventCard {
-  margin: 10px;
-  width: 100%;
+  margin: 10px auto;
+  width: 90%;
   border-radius: 10px;
 }
 
@@ -769,6 +766,12 @@
   cursor: pointer;
   -webkit-box-shadow: 0 0 8px #444;
           box-shadow: 0 0 8px #444;
+}
+
+@media only screen and (max-width: 850px) {
+  .eventComponent {
+    margin-top: 30px;
+  }
 }
 
 .left {

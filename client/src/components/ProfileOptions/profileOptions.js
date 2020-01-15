@@ -3,15 +3,6 @@ import React from "react";
 function ProfileOptions(props) {
   return (
     <div className="col-md-4">
-      <div className="mobalOptionsMenu">
-        <ul>
-          <li>Friends</li>
-          <li>Invites</li>
-          <li>Saved Events</li>
-          <li>Favorited Places</li>
-          <li>Sign Out</li>
-        </ul>
-      </div>
       <div className="optionsMenu">
         <h4 className="componentHeader">Options</h4>
         <div className="row">
