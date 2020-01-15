@@ -141,7 +141,7 @@ class Home extends Component {
     this.handleLogin = this.handleLogin.bind(this);
 
     return (
-      <div className="wrapper">
+      <div className="home-wrapper">
         <Nav
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}

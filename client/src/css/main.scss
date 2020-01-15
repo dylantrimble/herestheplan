@@ -20,6 +20,7 @@ $third-color: #ff4d4d;
 @import "../components/Footer/footer";
 @import "../components/Welcome/welcome";
 @import "../components/InviteComponent/inviteComponents";
+@import "../components/ProfileEvents/profileEvent";
 
 .left {
   background-color: white;
@@ -51,7 +52,7 @@ body {
 }
 
 .dropdown-toggle {
-  background-color:  white;
+  background-color: white;
   color: black;
   border: solid #007bff 1px;
   width: 200px;
@@ -88,4 +89,16 @@ main {
     justify-content: space-evenly;
     // flex
   }
+}
+
+.profile-wrapper {
+  min-height: calc(100vh - 212px);
+}
+
+.main-wrapper {
+  min-height: calc(100vh - 183px);
+}
+
+.home-wrapper {
+  min-height: calc(100vh - 132px);
 }

@@ -1,9 +1,14 @@
 import React from "react";
 
-function ProfileEvents() {
+function ProfileEvents(props) {
   return (
-    <div className="col-md-5 left">
-      <h1>Current Events</h1>
+    <div className="cardDiv eventCard">
+      <div className="card">
+        <div className="card-body">
+          <h3 className="card-title">{props.name}</h3>
+          <p className="eventDate">{props.date}</p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -37,7 +37,8 @@ module.exports = function(app) {
     });
   });
 
-  app.get("api/users/events/:id", function(req, res) {
+  app.get("/api/users/events/:id", function(req, res) {
+    console.log("something")
     db.User.findOne({
       include: [db.Events],
       where: { id: req.params.id }
@@ -45,6 +46,16 @@ module.exports = function(app) {
       res.json(dbUser);
     });
   });
+
+  app.get("/api/users/savedEvents/:id", function(req, res) {
+    db.User.findOne({
+      include: [db.Events],
+      where: { id: req.params.id }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
 
   app.get("/api/users/savedPlaces/:id", function(req, res) {
     db.User.findOne({

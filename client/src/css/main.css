@@ -466,6 +466,8 @@
 }
 
 .favoritedComponent .closeFavorite {
+  border: none;
+  font-size: 20px;
   position: absolute;
   right: 0;
   border-radius: 3px;
@@ -635,10 +637,13 @@
 }
 
 .friendComponent .closeFriend {
+  border: none;
+  font-size: 20px;
   position: absolute;
   right: 0;
   border-radius: 3px;
   padding: 4px 11px;
+  color: black;
 }
 
 .friendComponent ul {
@@ -669,7 +674,7 @@
 .googleImg {
   margin: auto;
   height: 20px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .nameLink {
@@ -713,6 +718,8 @@
 }
 
 .inviteComponent .closeInvite {
+  border: none;
+  font-size: 20px;
   position: absolute;
   right: 0;
   border-radius: 3px;
@@ -722,6 +729,46 @@
 .inviteComponent ul {
   padding: 0;
   list-style-type: none;
+}
+
+.eventComponent {
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px #444;
+          box-shadow: 0 0 15px #444;
+  padding-bottom: 10px;
+}
+
+.eventComponent .closeFavorite {
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  right: 0;
+  border-radius: 3px;
+  padding: 4px 11px;
+}
+
+.eventComponent .savedEventsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow: auto;
+  height: 400px;
+}
+
+.eventComponent .eventCard {
+  margin: 10px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.eventComponent .eventCard:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 8px #444;
+          box-shadow: 0 0 8px #444;
 }
 
 .left {
@@ -802,5 +849,17 @@ main {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+}
+
+.profile-wrapper {
+  min-height: calc(100vh - 212px);
+}
+
+.main-wrapper {
+  min-height: calc(100vh - 183px);
+}
+
+.home-wrapper {
+  min-height: calc(100vh - 132px);
 }
 /*# sourceMappingURL=main.css.map */

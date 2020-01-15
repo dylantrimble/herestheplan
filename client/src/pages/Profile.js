@@ -15,19 +15,23 @@ class Profile extends Component {
     FavoriteComponent: false,
     inviteComponent: false,
     friendComponent: false,
-    favorites: []
+    favorites: [],
+    events: []
   };
 
-  // componentDidMount() {
-  //   axios
-  //     .get(`/api/`)
-  //     .then(response => {
-  //       console.log(response)
-  //     })
-  //     .catch(function(error) {
-  //       console.log(error);
-  //     });
-  // }
+  componentDidMount() {
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    console.log(user);
+    axios
+      .get(`api/users/events/` + user.id)
+      .then(response => {
+        console.log(response);
+        this.setState({ events: response.data.Events });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 
   toggleBurger = () => {
     const collapsed = !this.state.collapsed;
@@ -96,7 +100,7 @@ class Profile extends Component {
     console.log(this.state);
 
     return (
-      <div>
+      <div className="profile-wrapper">
         <Nav
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}
@@ -117,7 +121,16 @@ class Profile extends Component {
           <div className="row profile-content">
             {this.state.friendComponent && <FriendComponent />}
             {this.state.inviteComponent && <InviteComponent />}
-            {this.state.EventComponent && <ProfileEvents />}
+            {this.state.EventComponent && (
+              <div className="col-md-5 eventComponent">
+                <h4 className="componentHeader">Created Events</h4>
+                <div className="savedEventsWrapper">
+                  {this.state.events.map(event => (
+                    <ProfileEvents name={event.name} date={event.date} />
+                  ))}
+                </div>
+              </div>
+            )}
             {this.state.FavoriteComponent && (
               <div className="col-md-5 favoritedComponent">
                 <h4 className="componentHeader">Saved Places</h4>
@@ -129,7 +142,6 @@ class Profile extends Component {
                 </div>
               </div>
             )}
-
             <ProfileOptions
               storageClear={this.storageClear}
               friendComponentRender={this.friendComponentRender}
