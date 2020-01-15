@@ -15,6 +15,8 @@ $third-color: #ff4d4d;
 @import "../components/Favorites/favorites";
 @import "../components/Signup/signup";
 @import "../components/EventModal/eventModal";
+@import "../components/Footer/footer";
+@import "../components/Welcome/welcome";
 
 .left {
   font-size: 50px;
@@ -87,4 +89,8 @@ body {
 
 main {
   margin-top: 51px;
+}
+
+.profile-body {
+  margin-top: 80px;
 }
