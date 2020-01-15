@@ -11,6 +11,7 @@ import axios from "axios";
 class Profile extends Component {
   state = {
     collapsed: false,
+    optionsComponent: true,
     EventComponent: true,
     FavoriteComponent: false,
     inviteComponent: false,
@@ -55,10 +56,8 @@ class Profile extends Component {
           },
           () =>
             this.setState({
-              FavoriteComponent: true,
-              EventComponent: false,
-              inviteComponent: false,
-              friendComponent: false
+              optionsComponent: false,
+              FavoriteComponent: true
             })
         );
       })
@@ -69,28 +68,42 @@ class Profile extends Component {
 
   savedEvents = event => {
     this.setState({
-      FavoriteComponent: false,
-      EventComponent: true,
-      inviteComponent: false,
-      friendComponent: false
+      EventComponent: true
     });
   };
 
   friendComponentRender = event => {
     this.setState({
-      FavoriteComponent: false,
-      EventComponent: false,
-      inviteComponent: false,
+      optionsComponent: false,
       friendComponent: true
     });
   };
 
   inviteComponentRender = event => {
     this.setState({
-      FavoriteComponent: false,
-      EventComponent: false,
-      inviteComponent: true,
+      optionsComponent: false,
+      inviteComponent: true
+    });
+  };
+
+  closeFriendComponent = () => {
+    this.setState({
+      optionsComponent: true,
       friendComponent: false
+    });
+  };
+
+  closeInviteComponent = () => {
+    this.setState({
+      optionsComponent: true,
+      inviteComponent: false
+    });
+  };
+
+  closeFavoritesComponent = () => {
+    this.setState({
+      optionsComponent: true,
+      FavoriteComponent: false
     });
   };
 
@@ -118,11 +131,37 @@ class Profile extends Component {
           </a>
         </Nav>
         <div className="container profile-body">
+          <div className="mobalOptionsMenu">
+            <button
+              className="btn optionButton submitBtn"
+              onClick={event => this.friendComponentRender(event)}
+            >
+              Friends
+            </button>
+            <button
+              className="btn optionButton submitBtn"
+              onClick={event => this.inviteComponentRender(event)}
+            >
+              Invites
+            </button>
+            <button
+              className="btn optionButton submitBtn"
+              onClick={event => this.grabFaves(event)}
+            >
+              Favorited Places
+            </button>
+            <a href="/">
+              <button
+                className="btn btn-danger mobalOptionsMenu"
+                onClick={this.storageClear}
+              >
+                Sign Out
+              </button>
+            </a>
+          </div>
           <div className="row profile-content">
-            {this.state.friendComponent && <FriendComponent />}
-            {this.state.inviteComponent && <InviteComponent />}
             {this.state.EventComponent && (
-              <div className="col-md-5 eventComponent">
+              <div className="col-md-5 col-sm-11 eventComponent">
                 <h4 className="componentHeader">Created Events</h4>
                 <div className="savedEventsWrapper">
                   {this.state.events.map(event => (
@@ -131,10 +170,21 @@ class Profile extends Component {
                 </div>
               </div>
             )}
+            {this.state.friendComponent && (
+              <FriendComponent closeComponent={this.closeFriendComponent} />
+            )}
+            {this.state.inviteComponent && (
+              <InviteComponent closeComponent={this.closeInviteComponent} />
+            )}
             {this.state.FavoriteComponent && (
               <div className="col-md-5 favoritedComponent">
                 <h4 className="componentHeader">Saved Places</h4>
-                <button className="closeFavorite">X</button>
+                <button
+                  className="closeFavorite"
+                  onClick={this.closeFavoritesComponent}
+                >
+                  X
+                </button>
                 <div className="savedPlacesWrapper">
                   {this.state.favorites.map(faves => (
                     <Favorites name={faves.name} location={faves.location} />
@@ -142,13 +192,15 @@ class Profile extends Component {
                 </div>
               </div>
             )}
-            <ProfileOptions
-              storageClear={this.storageClear}
-              friendComponentRender={this.friendComponentRender}
-              inviteComponentRender={this.inviteComponentRender}
-              grabFaves={this.grabFaves}
-              savedEvents={this.savedEvents}
-            />
+            {this.state.optionsComponent && (
+              <ProfileOptions
+                storageClear={this.storageClear}
+                friendComponentRender={this.friendComponentRender}
+                inviteComponentRender={this.inviteComponentRender}
+                grabFaves={this.grabFaves}
+                savedEvents={this.savedEvents}
+              />
+            )}
           </div>
         </div>
       </div>

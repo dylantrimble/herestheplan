@@ -4,6 +4,8 @@
   border-radius: 5px;
   box-shadow: 0 0 15px $dark-primary-color;
   padding-bottom: 10px;
+  width: 400px;
+
   .closeFavorite {
     border: none;
     font-size: 20px;
@@ -13,18 +15,22 @@
     padding: 4px 11px;
   }
   .savedEventsWrapper {
-    display: flex;
-    flex-wrap: wrap;
     overflow: auto;
     height: 400px;
   }
   .eventCard {
-    margin: 10px;
-    width: 100%;
+    margin: 10px auto;
+    width: 90%;
     border-radius: 10px;
     &:hover {
         cursor: pointer;
         box-shadow: 0 0 8px #444;
     }
   }
+}
+
+@media only screen and (max-width: 850px) {
+ .eventComponent {
+   margin-top: 30px;
+ }
 }
