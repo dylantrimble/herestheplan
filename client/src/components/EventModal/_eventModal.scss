@@ -1,5 +1,42 @@
 .createEventBtn {
-    background: $primary-color;
-    position: absolute;
-    right: 10%;
+  background: $primary-color;
+  position: absolute;
+  right: 10%;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.modal-body {
+  padding-top: 0;
+  display: flex;
+  justify-content: space-evenly;
+  .center-content {
+    margin-top: 70px;
+  }
+  input {
+    width: 100%;
+  }
+  button {
+    display: block;
+    margin: 15px auto 0;
+    color: $secondary-color;
+  }
+  .select-event-body {
+    position: relative;
+    .chooseEventBtn {
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+      transform: translate(50%);
+    }
+  }
+  .dropdown {
+    // color: $secondary-color;
+    .dropdown-item {
+      color: black;
+    }
+  }
 }

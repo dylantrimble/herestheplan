@@ -5,6 +5,8 @@ import Nav from "../components/Nav/nav";
 import FillerImages from "../components/FillerImages/filler_card_images";
 import EventModal from "../components/EventModal/eventModal";
 import axios from "axios";
+import Moment from "moment";
+import "moment-timezone";
 
 class Main extends Component {
   constructor(props) {
@@ -19,7 +21,9 @@ class Main extends Component {
       value: "",
       selectedCardName: "",
       selectedCardLocation: "",
-      selecteCardRating: ""
+      selecteCardRating: "",
+      eventName: "",
+      eventDate: ""
     };
   }
 
@@ -33,7 +37,6 @@ class Main extends Component {
     })
       .then(res => res.json())
       .then(results => {
-        console.log(results);
         this.setState({
           latLocation: results.location.lat,
           lngLocation: results.location.lng
@@ -96,14 +99,67 @@ class Main extends Component {
     const currentCard = this.state.items.filter(
       item => item.id === event.target.id
     );
-    this.setState(
-      {
-        selectedCardName: currentCard[0].name,
-        selecteCardRating: currentCard[0].rating,
-        selectedCardLocation: currentCard[0].vicinity
-      },
-      () => console.log(this.state)
-    );
+    this.setState({
+      selectedCardName: currentCard[0].name,
+      selecteCardRating: currentCard[0].rating,
+      selectedCardLocation: currentCard[0].vicinity
+    });
+  };
+
+  handleEventNameChange = event => {
+    this.setState({
+      eventName: event.target.value
+    });
+  };
+
+  handleDateEvent = event => {
+    // const date =  Moment(event.target.value).format("MMM Do YY");
+    const date = event.target.value;
+    this.setState({
+      eventDate: date
+    });
+  };
+
+  addToEvent = event => {
+    event.preventDefault();
+    console.log("added to event!")
+  }
+
+  grabEventInfo = event => {
+    event.preventDefault();
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    const data = {
+      name: this.state.eventName,
+      date: this.state.eventDate,
+      UserId: user.id
+    }
+    console.log(data)
+    axios
+      .post("/api/events", data)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+  };
+
+  theHaloThemeSongOnRepeat = event => {
+    event.preventDefault()
+    let data = {
+      name: this.state.selectedCardName,
+      raiting: this.state.selecteCardRating,
+      location: this.state.selectedCardLocation,
+    };
+    axios
+      .post("/api/events", data)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   saveFave = event => {
@@ -141,6 +197,8 @@ class Main extends Component {
     const burgerClass = this.state.collapsed ? "active-burger" : "";
     const showUl = this.state.collapsed ? "showUl" : "";
     const userName = JSON.parse(window.localStorage.getItem("user"));
+    this.handleEventNameChange = this.handleEventNameChange.bind(this);
+    this.handleDateEvent = this.handleDateEvent.bind(this);
 
     return (
       <div className="mainBody">
@@ -178,6 +236,7 @@ class Main extends Component {
                 </button>
                 <div
                   className="dropdown-menu searchDropdown"
+                  id="dropdown-bar"
                   aria-labelledby="dropdownMenu2"
                 >
                   <button
@@ -321,7 +380,14 @@ class Main extends Component {
               <FillerImages />
             )}
           </div>
-          <EventModal />
+          <EventModal
+            eventDate={this.state.eventDate}
+            eventName={this.state.eventName}
+            handleDateChange={event => this.handleDateEvent(event)}
+            eventNameChange={event => this.handleEventNameChange(event)}
+            grabEventInfo={event => this.grabEventInfo(event)}
+            addToEvent={event => this.addToEvent(event)}
+          />
         </main>
       </div>
     );

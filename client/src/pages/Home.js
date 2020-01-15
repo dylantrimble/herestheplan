@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import Jumbotron from "../components/Jumbotron/jumbotron";
-import SignUpModal from "../components/Signupmodal/signupmodal";
-import SignInModal from "../components/Signinmodal/signinmodal";
 import "../css/main.css";
 import axios from "axios";
 import Nav from "../components/Nav/nav";
@@ -15,6 +12,9 @@ class Home extends Component {
   state = {
     collapsed: false,
     loggedIn: false,
+    inputBlank: false,
+    incorrectLogin: false,
+    showLoginComponent: true,
     loginUser: "",
     loginPassword: "",
     fullName: "",
@@ -48,25 +48,40 @@ class Home extends Component {
     this.setState({ loggedIn: true });
   };
 
+  displaySignUpComponent = event => {
+    event.preventDefault();
+    this.setState({ showLoginComponent: false });
+    console.log(this.state);
+  };
+
+  displayLoginComponent = event => {
+    event.preventDefault();
+    this.setState({ showLoginComponent: true });
+    console.log(this.state);
+  };
+
   handleLogin(event) {
     event.preventDefault();
-    axios
-      .get(`/api/user/${this.state.loginUser}/${this.state.loginPassword} `)
-      .then(response => {
-        console.log(response.data);
-        const user = {
-          id: response.data.id,
-          fullName: response.data.fullName,
-          userName: response.data.username
-        };
-        console.log(user);
-        response.data
-          ? this.useLocalStorage(JSON.stringify(user))
-          : this.setState({ loggedIn: false });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    if (this.state.loginUser === "" || this.state.loginPassword === "") {
+      this.setState({ inputBlank: true });
+    } else {
+      axios
+        .get(`/api/user/${this.state.loginUser}/${this.state.loginPassword} `)
+        .then(response => {
+          this.setState({ incorrectLogin: false, inputBlank: false });
+          const user = {
+            id: response.data.id,
+            fullName: response.data.fullName,
+            userName: response.data.username
+          };
+          this.useLocalStorage(JSON.stringify(user));
+        })
+        .catch(
+          function(error) {
+            this.setState({ incorrectLogin: true, inputBlank: false });
+          }.bind(this)
+        );
+    }
   }
 
   handleNewUser(event) {
@@ -77,7 +92,7 @@ class Home extends Component {
       password: this.state.password
     };
     if (data.fullName === "" || data.username === "" || data.password === "") {
-      alert("Fill out all inputs");
+      this.setState({ inputBlank: true });
     } else {
       const options = {
         method: "POST",
@@ -124,7 +139,6 @@ class Home extends Component {
 
     this.handleNewUser = this.handleNewUser.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
-    console.log("someting" + JSON.stringify(this.props));
 
     return (
       <div className="wrapper">
@@ -137,34 +151,23 @@ class Home extends Component {
           <a className="btn" href="/">
             Home
           </a>
-          <a
-            className="btn"
-            data-toggle={this.state.loggedIn ? "" : "modal"}
-            data-target={this.state.loggedIn ? "" : "#signInModal"}
-            href={this.state.loggedIn ? "/main" : "/"}
-          >
+          <a className="btn" href={this.state.loggedIn ? "/main" : "/"}>
             Search
           </a>
           <a
             className="btn"
-            data-toggle={this.state.loggedIn ? "" : "modal"}
-            data-target={this.state.loggedIn ? "" : "#signInModal"}
             href={this.state.loggedIn ? "/profile" : ""}
+            onClick={
+              this.state.showLoginComponent
+                ? event => this.displaySignUpComponent(event)
+                : event => this.displayLoginComponent(event)
+            }
           >
-            {this.state.loggedIn ? "Profile" : "Sign In"}
+            {this.state.showLoginComponent ? "Sign Up" : "Sign In"}
           </a>
         </Nav>
-        {/* <Jumbotron>
-          <button
-            type="button"
-            className="btn getStartedBtn"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          >
-            GET STARTED
-          </button>
-        </Jumbotron> */}
         <JumbotronHome>
+<<<<<<< HEAD
           <Login>
           </Login>
           <SignUp>
@@ -176,25 +179,29 @@ class Home extends Component {
           <div></div>
         ) : (
             <SignUpModal
+=======
+          {this.state.showLoginComponent ? (
+            <Login
+              state={this.state}
+              handleChangeLoginUser={this.handleChangeLoginUser}
+              handleChangeLoginPassword={this.handleChangeLoginPassword}
+              handleLogin={this.handleLogin}
+              displaySignUpComponent={this.displaySignUpComponent}
+            />
+          ) : (
+            <SignUp
+>>>>>>> 4bdfc93d56fe22e8901ad66d4ae76fb46a9ed966
               state={this.state}
               handleChangeFullName={this.handleChangeFullName}
               handleChangeUsername={this.handleChangeUsername}
               handleChangePassword={this.handleChangePassword}
               handleNewUser={this.handleNewUser}
-            ></SignUpModal>
+            />
           )}
-        {this.state.modalHide ? (
-          <div></div>
-        ) : (
-            <SignInModal
-              state={this.state}
-              handleChangeLoginUser={this.handleChangeLoginUser}
-              handleChangeLoginPassword={this.handleChangeLoginPassword}
-              handleLogin={this.handleLogin}
-            ></SignInModal>
-          )}
+        </JumbotronHome>
       </div>
     );
   }
 }
+
 export default Home;

@@ -1,7 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Events = sequelize.define("Events", {
     name: DataTypes.STRING,
-    event: DataTypes.STRING,
     date: DataTypes.DATE
   });
 
@@ -12,6 +11,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     })
   }
+
+  // Events.associate = models => {
+  //   Events.hasMany(models.Places, {
+  //     onDelete: "cascade"
+  //   })
+  // }
 
   return Events;
 };

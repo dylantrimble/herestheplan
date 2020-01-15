@@ -2,14 +2,10 @@
   display: flex;
   justify-content: space-evenly;
 }
-
-.signUpInBtn {
-  background: $third-color;
-}
-
 .submitBtn {
   background: $primary-color;
   &:hover {
+    color: $secondary-color;
     background: $dark-primary-color;
     box-shadow: 0 0 10px grey;
   }

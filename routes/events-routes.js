@@ -2,7 +2,6 @@ var db = require("../models");
 
 module.exports = function(app) {
   app.get("/api/events", function(req, res) {
-    // 1. Add a join to include all of each Author's Posts
     db.Events.findAll({}).then(function(dbEvents) {
       res.json(dbEvents);
     });
@@ -20,7 +19,14 @@ module.exports = function(app) {
   });
 
   app.post("/api/events", function(req, res) {
-    db.Events.create(req.body).then(function(dbEvents) {
+    const UserId = req.body.UserId
+    console.log(UserId)
+    db.Events.create({
+      include: [db.User],
+      name: req.body.name,
+      date: req.body.date,
+      UserId: UserId
+    }).then(function(dbEvents) {
       res.json(dbEvents);
     });
   });

@@ -8,14 +8,13 @@ $secondary-color: #e9ecef;
 $third-color: #ff4d4d;
 
 @import "../components/nav/_nav";
-@import "../components/Jumbotron/jumbotron";
 @import "../components/nav/_nav.scss";
-@import "../components/Signupmodal/modal";
 @import "../components//Button/button";
 @import "../components/Card/card";
 @import "../components/Login/login";
 @import "../components/Favorites/favorites";
 @import "../components/Signup/signup";
+@import "../components/EventModal/eventModal";
 
 .left {
   font-size: 50px;
@@ -70,6 +69,11 @@ body {
   }
 }
 
+.searchDropdown {
+  height: 350px;
+  overflow: auto;
+}
+
 .main-page-container {
   display: flex;
   flex-direction: column;
@@ -81,37 +85,10 @@ body {
   margin: 20px auto;
 }
 
-// .searchDiv {
-//   margin-top: 100px;
-//   width: 100%;
-//   .formSearchBar {
-//     margin: 0 auto;
-//     display: block;
-//     width: 400px;
-//   }
-//   .searchBar {
-//     position: relative;
-//     width: 400px;
-//     padding-left: 10px;
-//     font-size: 30px;
-//     border-radius: 30px;
-//     box-shadow: 0 0 10px black;
-//   }
-//   .searchButton {
-//     position: relative;
-//     left: 40%;
-//     width: 20%;
-//     margin: 10px 0 40px;
-//     background-color: $primary-color;
-//     border-radius: 40px;
-//     border: none;
-//     box-shadow: 0 0 10px black;
-//     &:hover {
-//       background: $dark-primary-color;
-//     }
-//   }
-// }
-
 main {
   margin-top: 51px;
+}
+
+.profile-body {
+  margin-top: 80px;
 }
