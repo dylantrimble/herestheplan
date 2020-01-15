@@ -7,6 +7,7 @@ import JumbotronHome from "../components/JumbotronHome/jumbotronHome";
 import Login from "../components/Login/login";
 import SignUp from "../components/Signup/signup";
 import Footer from "../components/Footer/footer";
+import Welcome from "../components/Welcome/welcome";
 
 class Home extends Component {
   state = {
@@ -167,6 +168,9 @@ class Home extends Component {
           </a>
         </Nav>
         <JumbotronHome>
+          <Welcome>
+            
+          </Welcome>
           {this.state.showLoginComponent ? (
             <Login
               state={this.state}
