@@ -16,6 +16,7 @@ $third-color: #ff4d4d;
 @import "../components/Signup/signup";
 @import "../components/EventModal/eventModal";
 @import "../components//ProfileOptions/profileOptions";
+@import "../components/FriendComponent/friendComponent";
 
 .left {
   // font-size: 50px;
@@ -48,10 +49,13 @@ body {
 }
 
 .dropdown-toggle {
-  background-color: $primary-color;
+  background-color:  white;
+  color: black;
+  border: none;
+  box-shadow: 0 0 5px #007bff;
   width: 200px;
   &:hover {
-    background-color: $dark-primary-color;
+    background-color: #007bff;
   }
 }
 

@@ -13,7 +13,7 @@ function ProfileOptions(props) {
         </ul>
       </div>
       <div className="optionsMenu">
-        <h4>OPTIONS</h4>
+        <h4 className="componentHeader">OPTIONS</h4>
         <div className="row">
           <div className="col-md-12">
             <button
