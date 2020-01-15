@@ -57,6 +57,8 @@ class Profile extends Component {
           () =>
             this.setState({
               optionsComponent: false,
+              friendComponent: false,
+              inviteComponent: false,
               FavoriteComponent: true
             })
         );
@@ -75,14 +77,18 @@ class Profile extends Component {
   friendComponentRender = event => {
     this.setState({
       optionsComponent: false,
-      friendComponent: true
+      friendComponent: true,
+      inviteComponent: false,
+      FavoriteComponent: false
     });
   };
 
   inviteComponentRender = event => {
     this.setState({
       optionsComponent: false,
-      inviteComponent: true
+      friendComponent: false,
+      inviteComponent: true,
+      FavoriteComponent: false
     });
   };
 
@@ -130,7 +136,7 @@ class Profile extends Component {
             Sign Out
           </a>
         </Nav>
-        <div className="container profile-body">
+        <div className="profile-body">
           <div className="mobalOptionsMenu">
             <button
               className="btn optionButton submitBtn"
@@ -152,7 +158,7 @@ class Profile extends Component {
             </button>
             <a href="/">
               <button
-                className="btn btn-danger mobalOptionsMenu"
+                className="btn btn-danger"
                 onClick={this.storageClear}
               >
                 Sign Out
@@ -177,7 +183,7 @@ class Profile extends Component {
               <InviteComponent closeComponent={this.closeInviteComponent} />
             )}
             {this.state.FavoriteComponent && (
-              <div className="col-md-5 favoritedComponent">
+              <div className="col-md-5 col-sm-11 favoritedComponent">
                 <h4 className="componentHeader">Saved Places</h4>
                 <button
                   className="closeFavorite"

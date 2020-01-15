@@ -34,10 +34,11 @@
 
 @media only screen and (max-width: 850px) {
   .mobalOptionsMenu {
-    display: inline;
-    // justify-content: space-evenly;
+    display: block;
+    margin: 0 auto;
+    width: 426px;
     button {
-      margin: 0 10px;
+      margin: 0 5px;
     }
   }
   .optionsMenu {
