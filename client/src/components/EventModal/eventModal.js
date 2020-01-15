@@ -1,6 +1,6 @@
 import React from "react";
 
-function Modal(props) {
+function Modal(props, children) {
   return (
     <div>
       <div
@@ -69,13 +69,11 @@ function Modal(props) {
                     aria-expanded="false"
                   >
                     Select Event
-                  </button>
+                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    {/* {props.eventItems.map(item => {
-                      <button class="dropdown-item" type="button">
-                        {item.name}
-                      </button>
-                    })} */}
+                    {props.eventItems.map(item => (
+                      <button class="dropdown-item" type="button">{item.name}</button>
+                    ))}
                   </div>
                 </div>
                 <button
@@ -86,10 +84,6 @@ function Modal(props) {
                 </button>
               </div>
             </div>
-
-
-
-
           </div>
         </div>
       </div>

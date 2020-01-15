@@ -9,14 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: {
         allowNull: false
       }
-    })
-  }
-
-  // Events.associate = models => {
-  //   Events.hasMany(models.Places, {
-  //     onDelete: "cascade"
-  //   })
-  // }
-
+    });
+  };
   return Events;
 };

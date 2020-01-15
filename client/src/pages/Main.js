@@ -24,7 +24,8 @@ class Main extends Component {
       selecteCardRating: "",
       eventName: "",
       eventDate: "",
-      eventItems: []
+      eventItems: [],
+      hasEvents: false
     };
   }
 
@@ -53,21 +54,21 @@ class Main extends Component {
           this.state.lngLocation;
         this.state.value
           ? fetch(proxyurl + url)
-              .then(res => res.json())
-              .then(
-                results => {
-                  this.setState({
-                    isLoaded: true,
-                    items: results.results
-                  });
-                },
-                error => {
-                  this.setState({
-                    isLoaded: true,
-                    error
-                  });
-                }
-              )
+            .then(res => res.json())
+            .then(
+              results => {
+                this.setState({
+                  isLoaded: true,
+                  items: results.results
+                });
+              },
+              error => {
+                this.setState({
+                  isLoaded: true,
+                  error
+                });
+              }
+            )
           : console.log("api not loaded");
       });
   }
@@ -148,17 +149,20 @@ class Main extends Component {
   };
 
   masterChiefName = event => {
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    console.log(user);
     axios
-    .get('/api/events')
-    .then(response => {
-      // this.setState({
-      //   eventItems: res
-      // })
-      console.log(response);
-    })
-    .catch(err => {
-      console.log(err);
-    })
+      .get(`api/users/events/` + user.id)
+      .then(response => {
+        console.log(response.data.Events);
+        this.setState({
+          eventItems: response.data.Events,
+          hasEvents: true
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   theHaloThemeSongOnRepeat = event => {
@@ -173,7 +177,7 @@ class Main extends Component {
       .then(response => {
         console.log(response);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -195,7 +199,7 @@ class Main extends Component {
       .then(response => {
         console.log(response);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -217,7 +221,7 @@ class Main extends Component {
     this.handleDateEvent = this.handleDateEvent.bind(this);
 
     return (
-      <div className="mainBody">
+      <div className="main-wrapper">
         <Nav
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}
@@ -393,8 +397,8 @@ class Main extends Component {
                 />
               ))
             ) : (
-              <FillerImages />
-            )}
+                <FillerImages />
+              )}
           </div>
           <EventModal
             eventDate={this.state.eventDate}
@@ -404,7 +408,9 @@ class Main extends Component {
             grabEventInfo={event => this.grabEventInfo(event)}
             addToEvent={event => this.addToEvent(event)}
             eventItems={this.state.eventItems}
-          />
+          >
+
+          </EventModal>
         </main>
       </div>
     );

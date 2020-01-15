@@ -6,7 +6,6 @@ import Nav from "../components/Nav/nav";
 import JumbotronHome from "../components/JumbotronHome/jumbotronHome";
 import Login from "../components/Login/login";
 import SignUp from "../components/Signup/signup";
-import Footer from "../components/Footer/footer";
 import Welcome from "../components/Welcome/welcome";
 
 class Home extends Component {
@@ -142,7 +141,7 @@ class Home extends Component {
     this.handleLogin = this.handleLogin.bind(this);
 
     return (
-      <div className="wrapper">
+      <div className="home-wrapper">
         <Nav
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}
@@ -189,8 +188,6 @@ class Home extends Component {
             />
           )}
         </JumbotronHome>
-        <Footer
-        />
       </div>
     );
   }
