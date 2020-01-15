@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     fullName: DataTypes.STRING,
     username: DataTypes.STRING,
@@ -7,23 +7,16 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   User.associate = models => {
-    User.hasMany(models.Events, {
-      onDelete: "cascade"
-    })
-  }
-
-  User.associate = models => {
-    User.hasMany(models.Friends, {
-      onDelete: "cascade"
-    })
-  }
-
-  User.associate = models => {
     User.hasMany(models.SavedPlaces, {
       onDelete: "cascade"
-    })
-  }
-
+    });
+    User.hasMany(models.Events, {
+      onDelete: "cascade"
+    });
+    User.hasMany(models.Friends, {
+      onDelete: "cascade"
+    });
+  };
 
   return User;
 };

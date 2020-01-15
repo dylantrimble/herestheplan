@@ -201,7 +201,7 @@ class Main extends Component {
     this.handleDateEvent = this.handleDateEvent.bind(this);
 
     return (
-      <div className="mainBody">
+      <div className="main-wrapper">
         <Nav
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}

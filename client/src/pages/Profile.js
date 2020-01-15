@@ -15,13 +15,22 @@ class Profile extends Component {
     FavoriteComponent: false,
     inviteComponent: false,
     friendComponent: false,
-    modalState: false,
     favorites: [],
-    screenWidth: window.innerWidth
+    events: []
   };
 
-  componentWillUpdate() {
-    this.state.screenWidth < 850 && this.setState({ modalState: true });
+  componentDidMount() {
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    console.log(user);
+    axios
+      .get(`api/users/events/` + user.id)
+      .then(response => {
+        console.log(response);
+        this.setState({ events: response.data.Events });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   toggleBurger = () => {
@@ -35,12 +44,14 @@ class Profile extends Component {
 
   grabFaves = event => {
     event.preventDefault();
+    const user = JSON.parse(window.localStorage.getItem("user"));
     axios
-      .get(`/api/saved_places`)
+      .get(`api/users/savedPlaces/` + user.id)
       .then(response => {
+        const favorites = response.data.SavedPlaces;
         this.setState(
           {
-            favorites: response.data
+            favorites: favorites
           },
           () =>
             this.setState({
@@ -89,7 +100,7 @@ class Profile extends Component {
     console.log(this.state);
 
     return (
-      <div>
+      <div className="profile-wrapper">
         <Nav
           toggleBurger={this.toggleBurger}
           burgerClass={burgerClass}
@@ -107,15 +118,30 @@ class Profile extends Component {
           </a>
         </Nav>
         <div className="container profile-body">
-          <div className="row">
+          <div className="row profile-content">
             {this.state.friendComponent && <FriendComponent />}
             {this.state.inviteComponent && <InviteComponent />}
-            {this.state.EventComponent && <ProfileEvents />}
-            {this.state.FavoriteComponent &&
-              this.state.favorites.map(faves => (
-                <Favorites name={faves.name} location={faves.location} />
-              ))}
-
+            {this.state.EventComponent && (
+              <div className="col-md-5 eventComponent">
+                <h4 className="componentHeader">Created Events</h4>
+                <div className="savedEventsWrapper">
+                  {this.state.events.map(event => (
+                    <ProfileEvents name={event.name} date={event.date} />
+                  ))}
+                </div>
+              </div>
+            )}
+            {this.state.FavoriteComponent && (
+              <div className="col-md-5 favoritedComponent">
+                <h4 className="componentHeader">Saved Places</h4>
+                <button className="closeFavorite">X</button>
+                <div className="savedPlacesWrapper">
+                  {this.state.favorites.map(faves => (
+                    <Favorites name={faves.name} location={faves.location} />
+                  ))}
+                </div>
+              </div>
+            )}
             <ProfileOptions
               storageClear={this.storageClear}
               friendComponentRender={this.friendComponentRender}
