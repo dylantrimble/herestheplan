@@ -32,14 +32,4 @@ module.exports = function(app) {
     });
   });
 
-  app.delete("/api/saved_places/:id", function(req, res) {
-    db.SavedPlaces.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbSavedPlaces) {
-      res.json(dbSavedPlaces);
-    });
-  });
-
 };

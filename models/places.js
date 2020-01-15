@@ -5,13 +5,13 @@ module.exports = function(sequelize, DataTypes) {
     address: DataTypes.STRING
   });
 
-  // Places.associate = models => {
-  //   Places.belongsTo(models.Events, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   })
-  // };
+  Places.associate = models => {
+    Places.belongsTo(models.Events, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+  };
 
   return Places;
 };
