@@ -23,7 +23,8 @@ class Main extends Component {
       selectedCardLocation: "",
       selecteCardRating: "",
       eventName: "",
-      eventDate: ""
+      eventDate: "",
+      eventItems: []
     };
   }
 
@@ -104,6 +105,7 @@ class Main extends Component {
       selecteCardRating: currentCard[0].rating,
       selectedCardLocation: currentCard[0].vicinity
     });
+    this.masterChiefName();
   };
 
   handleEventNameChange = event => {
@@ -139,11 +141,25 @@ class Main extends Component {
       .then(response => {
         console.log(response);
       })
-      .catch(function(error) {
+      .catch(error => {
         console.log(error);
       });
 
   };
+
+  masterChiefName = event => {
+    axios
+    .get('/api/events')
+    .then(response => {
+      // this.setState({
+      //   eventItems: res
+      // })
+      console.log(response);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
 
   theHaloThemeSongOnRepeat = event => {
     event.preventDefault()
@@ -387,6 +403,7 @@ class Main extends Component {
             eventNameChange={event => this.handleEventNameChange(event)}
             grabEventInfo={event => this.grabEventInfo(event)}
             addToEvent={event => this.addToEvent(event)}
+            eventItems={this.state.eventItems}
           />
         </main>
       </div>

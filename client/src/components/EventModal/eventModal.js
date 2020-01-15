@@ -71,15 +71,11 @@ function Modal(props) {
                     Select Event
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button">
-                      Action
-                    </button>
-                    <button class="dropdown-item" type="button">
-                      Another action
-                    </button>
-                    <button class="dropdown-item" type="button">
-                      Something else here
-                    </button>
+                    {/* {props.eventItems.map(item => {
+                      <button class="dropdown-item" type="button">
+                        {item.name}
+                      </button>
+                    })} */}
                   </div>
                 </div>
                 <button
