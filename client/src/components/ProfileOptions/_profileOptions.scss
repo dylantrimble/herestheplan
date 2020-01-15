@@ -1,0 +1,35 @@
+.mobalOptionsMenu {
+  display: none;
+}
+
+.optionsMenu {
+  width: 300px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 15px $dark-primary-color;
+  border-radius: 5px;
+  text-align: center;
+  padding-bottom: 10px;
+  h4 {
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 10px 0;
+    width: 200px;
+    border-bottom: solid black 2px;
+  }
+  button {
+      color: $secondary-color;
+      margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .mobalOptionsMenu {
+    display: flex;
+  }
+  .optionsMenu {
+    display: none;
+  }
+}

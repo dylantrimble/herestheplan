@@ -15,14 +15,8 @@ class Profile extends Component {
     FavoriteComponent: false,
     inviteComponent: false,
     friendComponent: false,
-    modalState: false,
     favorites: [],
-    screenWidth: window.innerWidth
   };
-
-  componentWillUpdate() {
-    this.state.screenWidth < 850 && this.setState({ modalState: true });
-  }
 
   toggleBurger = () => {
     const collapsed = !this.state.collapsed;
@@ -107,7 +101,7 @@ class Profile extends Component {
           </a>
         </Nav>
         <div className="container profile-body">
-          <div className="row">
+          <div className="row profile-content">
             {this.state.friendComponent && <FriendComponent />}
             {this.state.inviteComponent && <InviteComponent />}
             {this.state.EventComponent && <ProfileEvents />}
