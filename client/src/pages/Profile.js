@@ -113,6 +113,22 @@ class Profile extends Component {
     });
   };
 
+  deleteSavedPlace = event => {
+    event.preventDefault();
+    // console.log("You clicked Me");
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    const userId = user.id;
+    axios
+      .delete(`/api/saved_places/${userId}/${event.target.id}`)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    this.grabFaves(event);
+  };
+
   render() {
     const burgerClass = this.state.collapsed ? "active-burger" : "";
     const showUl = this.state.collapsed ? "showUl" : "";
@@ -157,10 +173,7 @@ class Profile extends Component {
               Favorited Places
             </button>
             <a href="/">
-              <button
-                className="btn btn-danger"
-                onClick={this.storageClear}
-              >
+              <button className="btn btn-danger" onClick={this.storageClear}>
                 Sign Out
               </button>
             </a>
@@ -193,7 +206,12 @@ class Profile extends Component {
                 </button>
                 <div className="savedPlacesWrapper">
                   {this.state.favorites.map(faves => (
-                    <Favorites name={faves.name} location={faves.location} />
+                    <Favorites
+                      name={faves.name}
+                      location={faves.location}
+                      favoriteId={faves.id}
+                      deleteSavedPlace={this.deleteSavedPlace}
+                    />
                   ))}
                 </div>
               </div>

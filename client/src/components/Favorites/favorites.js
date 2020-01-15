@@ -4,7 +4,7 @@ function Favorites(props) {
   return (
     <div className="cardDiv savedCard">
       <div className="card">
-        <button className="deleteBtn">X</button>
+        <button className="deleteBtn" id={props.favoriteId} onClick={props.deleteSavedPlace}>X</button>
 
         <div className="card-body">
           <h3 className="card-title">{props.name}</h3>

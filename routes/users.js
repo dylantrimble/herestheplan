@@ -38,7 +38,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/users/events/:id", function(req, res) {
-    console.log("something")
+    console.log("something");
     db.User.findOne({
       include: [db.Events],
       where: { id: req.params.id }
@@ -56,6 +56,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/users/savedPlaces/:id", function(req, res) {
+    db.User.findOne({
+      include: [db.SavedPlaces],
+      where: { id: req.params.id }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
 
   app.get("/api/users/savedPlaces/:id", function(req, res) {
     db.User.findOne({
@@ -63,6 +71,31 @@ module.exports = function(app) {
       where: { id: req.params.id }
     }).then(function(dbUser) {
       res.json(dbUser);
+    });
+  });
+
+  // app.delete("/api/saved_places/:userId/:id", function(req, res) {
+  //   const userId = req.params.userId;
+  //   console.log(userId)
+  //   db.User.destroy({
+  //     include: [db.SavedPlaces],
+  //     where: {
+  //       id: userId,
+  //       UserId: req.params.id
+  //     }
+  //   }).then(function(dbSavedPlaces) {
+  //     res.json(dbSavedPlaces);
+  //   });
+  // });
+
+  app.delete("/api/saved_places/:userId/:id", function(req, res) {
+    db.SavedPlaces.destroy({
+      where: {
+        id: req.params.id,
+        UserId: req.params.userId
+      }
+    }).then(function(dbSavedPlaces) {
+      res.json(dbSavedPlaces);
     });
   });
 
