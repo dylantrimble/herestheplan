@@ -1,34 +1,20 @@
 import React from "react";
+import PoweredByGoogle from "../../image/poweredbygoogle.png"
 
 function Footer() {
     return (
         <footer className="page-footer font-small blue pt-4">
             <div className="container-fluid text-center text-md-left">
                 <div className="row">
-                    <div className="col-md-6 mt-md-0 mt-3">
-                        <h5 className="text-uppercase">Footer Content</h5>
-                        <p>Here you can use rows and columns to organize your footer content.</p>
+                    <div className="col-md-6">
+                        <img className="googleImg" src={PoweredByGoogle} />
                     </div>
-                    <hr className="clearfix w-100 d-md-none pb-3"></hr>
-                    <div className="col-md-3 mb-md-0 mb-3">
-                        <h5 className="text-uppercase">Links</h5>
-                        <ul className="list-unstyled">
-                            <li>
-                                <a href="#!">Link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 4</a>
-                            </li>
-                        </ul>
+                    <div className="col-md-6">
+                        <h6>Developed by:</h6>
+                        <span><a className="nameLink" href="#!" target="_blank">Rey Diaz</a> | <a className="nameLink" href={"https://jakefen.github.io/Portfolio/"} target="_blank">Jake Fenwick</a> | <a className="nameLink" href="#!" target="_blank">Will Irvin</a> | <a className="nameLink" href={"https://mirkomaya.github.io/updated_portfolio/"} target="_blank">Mirko Maya</a> | <a className="nameLink" href="#!" target="_blank">Dyl Trimble</a></span>
                     </div>
-                    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="#"> Herestheplan.com</a>
+                    <div class="footerCopyright text-center py-3">© 2020 Copyright:
+    <a href="#"> herestheplan.com</a>
                     </div>
                 </div>
             </div>

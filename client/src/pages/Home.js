@@ -167,19 +167,6 @@ class Home extends Component {
           </a>
         </Nav>
         <JumbotronHome>
-<<<<<<< HEAD
-          <Login>
-          </Login>
-          <SignUp>
-          </SignUp>
-        </JumbotronHome>
-        <Footer>
-        </Footer>
-        {this.state.modalHide ? (
-          <div></div>
-        ) : (
-            <SignUpModal
-=======
           {this.state.showLoginComponent ? (
             <Login
               state={this.state}
@@ -190,7 +177,6 @@ class Home extends Component {
             />
           ) : (
             <SignUp
->>>>>>> 4bdfc93d56fe22e8901ad66d4ae76fb46a9ed966
               state={this.state}
               handleChangeFullName={this.handleChangeFullName}
               handleChangeUsername={this.handleChangeUsername}
@@ -199,6 +185,8 @@ class Home extends Component {
             />
           )}
         </JumbotronHome>
+        <Footer
+        />
       </div>
     );
   }
