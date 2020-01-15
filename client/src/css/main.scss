@@ -87,7 +87,6 @@ main {
   .profile-content {
     display: flex;
     justify-content: space-evenly;
-    // flex
   }
 }
 
@@ -101,4 +100,15 @@ main {
 
 .home-wrapper {
   min-height: calc(100vh - 132px);
+}
+
+@media only screen and (max-width: 850px) {
+  .profile-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+  }
+  .eventComponent, .friendComponent, .inviteComponent, .favoritedComponent {
+    margin: 20px auto;
+  }
 }
