@@ -819,6 +819,10 @@ body {
   background-color: #007bff;
 }
 
+#dropdownMenu2 {
+  color: black;
+}
+
 .searchDropdown {
   height: 350px;
   overflow: auto;
