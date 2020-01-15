@@ -9,6 +9,7 @@ import Nav from "../components/Nav/nav";
 import JumbotronHome from "../components/JumbotronHome/jumbotronHome";
 import Login from "../components/Login/login";
 import SignUp from "../components/Signup/signup";
+import Footer from "../components/Footer/footer";
 
 class Home extends Component {
   state = {
@@ -169,6 +170,8 @@ class Home extends Component {
           <SignUp>
           </SignUp>
         </JumbotronHome>
+        <Footer>
+        </Footer>
         {this.state.modalHide ? (
           <div></div>
         ) : (
