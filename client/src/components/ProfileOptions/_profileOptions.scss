@@ -10,9 +10,14 @@
   border-radius: 5px;
   text-align: center;
   padding-bottom: 10px;
-  button {
-    color: $secondary-color;
+  .optionButton {
+    background-color: white;
+    box-shadow: 0 0 5px #007bff;
     margin-bottom: 10px;
+    &:hover {
+      color: white;
+      background-color: #007bff;
+    }
   }
 }
 
@@ -22,6 +27,7 @@
   font-size: 40px;
   font-weight: 700;
   margin: 10px 0;
+  width: 85%;
   border-bottom: solid black 2px;
 }
 

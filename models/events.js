@@ -12,11 +12,5 @@ module.exports = function(sequelize, DataTypes) {
     })
   }
 
-  // Events.associate = models => {
-  //   Events.hasMany(models.Places, {
-  //     onDelete: "cascade"
-  //   })
-  // }
-
   return Events;
 };

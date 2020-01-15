@@ -4,10 +4,11 @@ import Home from "./pages/Home";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
+import Footer from "./components/Footer/footer";
+
 import "./css/main.css";
 
 class App extends Component {
-
   render() {
     return (
       <Router>
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path="/profile" component={Profile} />
             <Route component={NoMatch} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );

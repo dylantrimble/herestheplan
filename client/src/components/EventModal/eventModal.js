@@ -90,10 +90,6 @@ function Modal(props) {
                 </button>
               </div>
             </div>
-
-
-
-
           </div>
         </div>
       </div>

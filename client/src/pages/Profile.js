@@ -15,8 +15,19 @@ class Profile extends Component {
     FavoriteComponent: false,
     inviteComponent: false,
     friendComponent: false,
-    favorites: [],
+    favorites: []
   };
+
+  // componentDidMount() {
+  //   axios
+  //     .get(`/api/`)
+  //     .then(response => {
+  //       console.log(response)
+  //     })
+  //     .catch(function(error) {
+  //       console.log(error);
+  //     });
+  // }
 
   toggleBurger = () => {
     const collapsed = !this.state.collapsed;
@@ -29,12 +40,14 @@ class Profile extends Component {
 
   grabFaves = event => {
     event.preventDefault();
+    const user = JSON.parse(window.localStorage.getItem("user"));
     axios
-      .get(`/api/saved_places`)
+      .get(`api/users/savedPlaces/` + user.id)
       .then(response => {
+        const favorites = response.data.SavedPlaces;
         this.setState(
           {
-            favorites: response.data
+            favorites: favorites
           },
           () =>
             this.setState({
@@ -105,10 +118,17 @@ class Profile extends Component {
             {this.state.friendComponent && <FriendComponent />}
             {this.state.inviteComponent && <InviteComponent />}
             {this.state.EventComponent && <ProfileEvents />}
-            {this.state.FavoriteComponent &&
-              this.state.favorites.map(faves => (
-                <Favorites name={faves.name} location={faves.location} />
-              ))}
+            {this.state.FavoriteComponent && (
+              <div className="col-md-5 favoritedComponent">
+                <h4 className="componentHeader">Saved Places</h4>
+                <button className="closeFavorite">X</button>
+                <div className="savedPlacesWrapper">
+                  {this.state.favorites.map(faves => (
+                    <Favorites name={faves.name} location={faves.location} />
+                  ))}
+                </div>
+              </div>
+            )}
 
             <ProfileOptions
               storageClear={this.storageClear}

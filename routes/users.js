@@ -19,7 +19,7 @@ module.exports = function(app) {
     }).then(function(user) {
       console.log(user);
       if (user == null) {
-        res.json(user)
+        res.json(user);
       } else {
         bcrypt.compare(req.params.password, user.password, function(
           err,
@@ -29,11 +29,29 @@ module.exports = function(app) {
             res.json(user);
             console.log("Success");
           } else {
-            res.json(result)
+            res.json(result);
             console.log("Incorrect password");
           }
         });
       }
+    });
+  });
+
+  app.get("api/users/events/:id", function(req, res) {
+    db.User.findOne({
+      include: [db.Events],
+      where: { id: req.params.id }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  app.get("/api/users/savedPlaces/:id", function(req, res) {
+    db.User.findOne({
+      include: [db.SavedPlaces],
+      where: { id: req.params.id }
+    }).then(function(dbUser) {
+      res.json(dbUser);
     });
   });
 

@@ -13,40 +13,33 @@ function ProfileOptions(props) {
         </ul>
       </div>
       <div className="optionsMenu">
-        <h4 className="componentHeader">OPTIONS</h4>
+        <h4 className="componentHeader">Options</h4>
         <div className="row">
           <div className="col-md-12">
             <button
               className="btn optionButton submitBtn"
               onClick={event => props.friendComponentRender(event)}
             >
-              FRIENDS
+              Friends
             </button>
             <br />
             <button
               className="btn optionButton submitBtn"
               onClick={event => props.inviteComponentRender(event)}
             >
-              INVITES
-            </button>
-            <br />
-            <button
-              className="btn optionButton submitBtn"
-              onClick={event => props.savedEvents(event)}
-            >
-              SAVED EVENTS
+              Invites
             </button>
             <br />
             <button
               className="btn optionButton submitBtn"
               onClick={event => props.grabFaves(event)}
             >
-              FAVORITED PLACES
+              Favorited Places
             </button>
             <br />
             <a href="/">
               <button className="btn btn-danger" onClick={props.storageClear}>
-                SIGN OUT
+                Sign Out
               </button>
             </a>
           </div>

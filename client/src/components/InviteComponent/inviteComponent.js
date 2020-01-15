@@ -2,11 +2,27 @@ import React from "react";
 
 function InviteComponent() {
   return (
-    <div className="col-md-5 left">
-      <h1>EVENT TITLE</h1>
-      <div className="row">
-        <div className="col-md-6 left2">INVITE COMPONENT INVITE COMPONENT INVITE COMPONENT</div>
-        <div className="col-md-6 right2">YOUR FRIENDS COMING WILL BE HERE</div>
+    <div className="col-md-3 inviteComponent">
+      <h4 className="componentHeader">Invites</h4>
+      <button className="closeInvite">X</button>
+      <div>
+        <ul>
+          <li>
+            <h5>Dyl's birthday</h5>
+            <button>Accept</button>
+            <button>Decline</button>
+          </li>
+          <li>
+            <h5>Sneaky Cats</h5>
+            <button>Accept</button>
+            <button>Decline</button>
+          </li>
+          <li>
+            <h5>Orange Balloon</h5>
+            <button>Accept</button>
+            <button>Decline</button>
+          </li>
+        </ul>
       </div>
     </div>
   );

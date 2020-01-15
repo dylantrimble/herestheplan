@@ -17,9 +17,11 @@ $third-color: #ff4d4d;
 @import "../components/EventModal/eventModal";
 @import "../components//ProfileOptions/profileOptions";
 @import "../components/FriendComponent/friendComponent";
+@import "../components/Footer/footer";
+@import "../components/Welcome/welcome";
+@import "../components/InviteComponent/inviteComponents";
 
 .left {
-  // font-size: 50px;
   background-color: white;
   background-color: #19cc7f;
   text-shadow: 1px 1px #fff;
@@ -51,10 +53,10 @@ body {
 .dropdown-toggle {
   background-color:  white;
   color: black;
-  border: none;
-  box-shadow: 0 0 5px #007bff;
+  border: solid #007bff 1px;
   width: 200px;
   &:hover {
+    border: solid #007bff 1px;
     background-color: #007bff;
   }
 }
