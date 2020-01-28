@@ -11,6 +11,10 @@ Still in development is a friend feature to allow other user to attend your even
  
 *Here's the Plan* application is meant to give users a way to show large groups of friends the evenings itinerary and make going out less a game of "where are we going?" and more a night of "That's awesome!". The application is implemented using a [Node.js](https://nodejs.org/en/) and [Express](https://expressjs.com/) server on the back end. The front end is built with [React.js](https://reactjs.org/) as the framework and [SCSS](https://sass-lang.com/) with [Bootstrap](https://getbootstrap.com/) for the style.
 
+## Demo
+	
+*Here's the Plan* is deployed to Heroku. Please check it out [here](https://herestheplan2.herokuapp.com/).
+
 ## Walk through
 
 Search Screen:
@@ -37,11 +41,6 @@ Adding a place to an event:
 * Adding to Existing Event:
 
 ![addingToEvent](images/eventSelect.png)
-
-
-## Demo
-	
-*Here's the Plan* is deployed to Heroku. Please check it out [here](https://herestheplan2.herokuapp.com/).
 
 
 Creators:
